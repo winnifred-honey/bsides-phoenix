@@ -4,28 +4,29 @@ Single-page site for BSides Phoenix 2027 (Saturday, October 16, 2027 · Mesa, Ar
 
 ## Files
 
-- `index.html`: the whole page (styles are inline)
+- `index.html`: the whole page
+- `assets/css/site.css`: all page styles (colors, spacing, buttons, sections)
 - `assets/logo/`: logos used on the site; `assets/logo/source/` holds the original exports
 - `assets/og-image.png`: 1200×630 link-preview image for social sites
 - `favicon-32.png`, `apple-touch-icon.png`: icon fallbacks (the SVG icon is `assets/logo/bsides-phoenix-icon.svg`)
-- `.nojekyll`: tells GitHub Pages to serve files as-is, without Jekyll
+- `.github/workflows/pages.yml`: publishes the site (see Hosting)
 
 ## Hosting (GitHub Pages)
 
-The site is served straight from the `main` branch; there is no build step.
+Every push to `main` runs `.github/workflows/pages.yml`, which copies only the site files
+(`index.html`, the two icon PNGs and `assets/`, minus `assets/logo/source/`) and publishes them.
+This README is not published.
 
-1. Repo **Settings → Pages**
-2. **Source:** Deploy from a branch
-3. **Branch:** `main`, folder `/ (root)`, then **Save**
+Repo **Settings → Pages → Source** must be set to **GitHub Actions**.
 
-The site appears at `https://winnifred-honey.github.io/bsides-phoenix/` a minute or two later,
-and every push to `main` republishes it.
+The site is at `https://winnifred-honey.github.io/bsides-phoenix/`.
+If you add a new top-level file the site needs, add it to the "Collect site files" step.
 
 ### Custom domain (bsidesphoenix.org)
 
 Only do this when you are ready to move the domain off its current host.
 
-1. **Settings → Pages → Custom domain:** `bsidesphoenix.org`, then Save (GitHub adds a `CNAME` file to `main`)
+1. **Settings → Pages → Custom domain:** `bsidesphoenix.org`, then Save (with Actions deploys GitHub stores this setting; no `CNAME` file is needed)
 2. At the DNS provider, point the apex `bsidesphoenix.org` at GitHub Pages with `A` records
    `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    (and `AAAA` `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`),
