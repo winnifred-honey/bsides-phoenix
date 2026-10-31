@@ -167,11 +167,9 @@ summary { cursor: pointer; }
 .venue__inner { align-items: stretch; }
 .venue__info { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
 .venue__blurb { margin: 0; max-width: 520px; }
-.venue__media {
-  flex: 1 1 420px; min-width: 0; min-height: 320px; border: 2px dashed rgba(255,255,255,0.8);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 500; text-align: center; padding: 24px; box-sizing: border-box;
-}
+.venue__map { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.venue__map-frame { display: block; width: 100%; flex: 1 1 auto; min-height: 320px; border: 0; background: #f1ecee; }
+.venue__directions, .venue__directions:hover { align-self: flex-start; color: #ffffff; font-weight: 600; font-size: 15px; }
 
 /* ---------- Sponsors ---------- */
 .sponsors__top { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end; justify-content: space-between; }
@@ -182,8 +180,20 @@ summary { cursor: pointer; }
   color: #6b5d64; font-size: 14px; text-align: center; padding: 24px;
 }
 
+/* ---------- Supporters ---------- */
+.supporters__empty {
+  background: #ffffff; border: 2px dashed #a8005b; padding: 32px 24px;
+  display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;
+}
+.supporters__list {
+  margin: 0; padding: 0; list-style: none;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px 24px;
+  font-weight: 500;
+}
+
 /* ---------- FAQ ---------- */
 .band--top { background: #f9f6f7; border-top: 1px solid #ded5d9; }
+.rule-top { border-top: 1px solid #ded5d9; }
 .faq { display: flex; flex-direction: column; border-top: 1px solid #ded5d9; }
 .faq__item { border-bottom: 1px solid #ded5d9; padding: 20px 0; }
 .faq__q { font-size: 18px; font-weight: 600; }
