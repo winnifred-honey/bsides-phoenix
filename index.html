@@ -307,18 +307,22 @@ html{scroll-behavior:smooth}
 
 <!-- Newsletter -->
 <section id="newsletter" class="on-dark" style="background: #3b3036; color: #f1ecee">
-<div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
+<div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
 <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
 <h2 style="margin: 0; font-size: 32px; line-height: 1.15; font-weight: 600; color: #ffffff">Get updates first</h2>
 <p style="margin: 0; color: #c4b8be">Ticket releases, the call for papers and the schedule, straight to your inbox.</p>
 </div>
-<form style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
-<label for="nl-email" style="font-size: 14px; font-weight: 500; color: #f1ecee">Email address</label>
-<div style="display: flex; flex-wrap: wrap; gap: 12px">
-<input id="nl-email" type="email" placeholder="you@example.com" style="flex: 1 1 240px; min-width: 0; height: 52px; box-sizing: border-box; padding: 0 16px; border: 1px solid #877880; background: #1c1519; color: #f1ecee; font-family: Poppins, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; border-radius: 0">
-<button type="submit" style="height: 52px; padding: 0 28px; border: 0; border-radius: 0; background: #a8005b; color: #ffffff; font-family: Poppins, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 600; cursor: pointer">Subscribe</button>
+<div style="flex: 1 1 420px; min-width: 0; background: #ffffff; color: #2a2126; padding: 16px; box-sizing: border-box">
+<div data-zeffy-embed data-form-url="/en-US/embed/newsletter-form/join-our-mailing-list-75"></div>
+<div data-zeffy-embed-fallback style="display:none;">
+<div style="position:relative;overflow:hidden;height:280px;width:100%;"><iframe title='Signup form powered by Zeffy' style='position: absolute; border: 0; top:0;left:0;bottom:0;right:0;width:100%;height:100%' data-zeffy-embed-src='https://www.zeffy.com/en-US/embed/newsletter-form/join-our-mailing-list-75' allowTransparency="true"></iframe></div>
 </div>
-</form>
+<script
+src="https://www.zeffy.com/embed/v2/zeffy-embed.js"
+onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});">
+</script>
+<noscript><p style="margin: 0"><a href="https://www.zeffy.com/en-US/embed/newsletter-form/join-our-mailing-list-75">Join our mailing list on Zeffy</a></p></noscript>
+</div>
 </div>
 </section>
 
