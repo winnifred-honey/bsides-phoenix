@@ -1,0 +1,43 @@
+# Publishes the website to GitHub Pages on every push to main.
+# Only the files the site needs are copied, so README.md and the original
+# logo exports are not published.
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; let a running deploy finish.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Collect site files
+        run: |
+          mkdir _site
+          cp index.html favicon-32.png apple-touch-icon.png _site/
+          cp -R assets _site/assets
+          rm -rf _site/assets/logo/source
+          find _site -type f | sort
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
