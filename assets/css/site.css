@@ -222,3 +222,12 @@ summary { cursor: pointer; }
 .footer-link, .footer-link:hover { color: #e0619f; padding: 10px 0; }
 .site-footer__legal { border-top: 1px solid #3b3036; }
 .site-footer__legal p { max-width: 1200px; margin: 0 auto; padding: 16px 24px; font-size: 14px; color: #a5979e; }
+
+/* ---------- Landing page (index.html while the full site is at preview/) ---------- */
+.landing { min-height: 100vh; box-sizing: border-box; }
+.landing__inner { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 48px; padding-top: 64px; padding-bottom: 240px; }
+.landing__intro { flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
+.landing__signup { flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.landing__signup .h2 { color: #ffffff; }
+.landing__lead { margin: 0 0 8px; }
+@media (max-width: 640px) { .landing__inner { padding-top: 40px; padding-bottom: 200px; } }
