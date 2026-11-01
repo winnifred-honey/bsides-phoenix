@@ -4,7 +4,8 @@ Single-page site for BSides Phoenix 2027 (Saturday, October 16, 2027 · Mesa, Ar
 
 ## Files
 
-- `index.html`: the whole page
+- `index.html`: the public landing page (email signup only) while the full site is in preview
+- `preview/index.html`: the full site, marked `noindex` so search engines don't list it yet
 - `assets/css/site.css`: all page styles (colors, spacing, buttons, sections)
 - `assets/logo/`: logos used on the site; `assets/logo/source/` holds the original exports
 - `assets/og-image.png`: 1200×630 link-preview image for social sites
@@ -14,13 +15,25 @@ Single-page site for BSides Phoenix 2027 (Saturday, October 16, 2027 · Mesa, Ar
 ## Hosting (GitHub Pages)
 
 Every push to `main` runs `.github/workflows/pages.yml`, which copies only the site files
-(`index.html`, the two icon PNGs and `assets/`, minus `assets/logo/source/`) and publishes them.
+(`index.html`, `preview/`, the two icon PNGs and `assets/`, minus `assets/logo/source/`) and publishes them.
 This README is not published.
 
 Repo **Settings → Pages → Source** must be set to **GitHub Actions**.
 
 The site is at `https://winnifred-honey.github.io/bsides-phoenix/`.
 If you add a new top-level file the site needs, add it to the "Collect site files" step.
+
+### Going official (swap the landing page for the full site)
+
+Right now the main address shows a signup-only landing page, and the full site lives at
+`/preview/` with `<meta name="robots" content="noindex, nofollow">` so search engines skip it.
+The preview link isn't private: anyone you send it to can open it.
+
+To make the full site the main page:
+
+1. Replace `index.html` with `preview/index.html`
+2. In it, remove the `noindex` meta tag and change every `../` path back to plain paths (`../assets/` → `assets/`, `../favicon-32.png` → `favicon-32.png`, `../apple-touch-icon.png` → `apple-touch-icon.png`)
+3. Delete `preview/` (and its line in the workflow), plus the `.landing` styles at the end of `assets/css/site.css`
 
 ### Custom domain (bsidesphoenix.org)
 
