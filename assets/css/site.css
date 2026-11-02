@@ -231,3 +231,18 @@ summary { cursor: pointer; }
 .landing__signup .h2 { color: #ffffff; }
 .landing__lead { margin: 0 0 8px; }
 @media (max-width: 640px) { .landing__inner { padding-top: 40px; padding-bottom: 200px; } }
+
+/* ---------- Long-form pages (code-of-conduct/) ---------- */
+.doc__title { margin: 0; font-size: 40px; line-height: 1.1; font-weight: 700; }
+.doc__summary { background: #ffffff; border-left: 6px solid #a8005b; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.doc__summary-title { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 600; color: #a8005b; }
+.doc__summary p { margin: 0; font-size: 17px; }
+.doc__toc-title { margin: 0 0 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6b5d64; }
+.doc__toc ul { margin: 0; padding: 0; list-style: none; columns: 2 240px; column-gap: 32px; }
+.doc__toc li { padding: 4px 0; break-inside: avoid; }
+.doc h2 { margin: 48px 0 12px; font-size: 26px; line-height: 1.2; font-weight: 600; scroll-margin-top: 16px; }
+.doc h2:first-child { margin-top: 0; }
+.doc p { margin: 0 0 12px; }
+.doc ul { margin: 0 0 12px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.doc__report { background: #f9f6f7; border: 1px solid #ded5d9; padding: 20px 20px 20px 40px; }
+@media (max-width: 640px) { .doc__title { font-size: 32px; } }
