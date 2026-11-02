@@ -138,7 +138,7 @@ summary { cursor: pointer; }
 /* ---------- Key dates ---------- */
 .dates { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid #ded5d9; }
 .dates__item {
-  flex: 1 1 200px; min-width: 0; padding: 24px 24px 24px 0; border-bottom: 1px solid #ded5d9;
+  flex: 1 1 300px; min-width: 0; padding: 24px 24px 24px 0; border-bottom: 1px solid #ded5d9;
   display: flex; flex-direction: column; gap: 8px;
 }
 .dates__when { color: #a8005b; }
