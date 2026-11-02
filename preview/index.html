@@ -24,24 +24,42 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
+<script src="../assets/js/nav.js" defer></script>
 </head>
 <body>
 <div class="page">
 
 <!-- Header -->
-<header class="site-header">
+<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/ and events/. Change all of them together. -->
+<header class="site-header site-header--nav">
 <div class="site-header__inner">
-<a href="#top" class="brand">
-<img src="../assets/logo/bsides-phoenix-horizontal-color.svg" alt="BSides Phoenix" width="145" height="50" class="brand__logo">
+<a href="./" class="brand">
+<img src="../assets/logo/bsides-phoenix-horizontal-color.svg" alt="BSides Phoenix home" width="145" height="50" class="brand__logo">
 <span class="brand__date">October 16, 2027 · Mesa</span>
 </a>
-<nav aria-label="Main" class="main-nav">
-<a href="#tickets" class="nav-link">Tickets</a>
-<a href="#program" class="nav-link">Program</a>
-<a href="#venue" class="nav-link">Venue</a>
-<a href="#sponsors" class="nav-link">Sponsors</a>
-<a href="#faq" class="nav-link">FAQ</a>
+<div class="header-actions">
 <a href="https://www.zeffy.com/en-US/ticketing/bsides-phoenix" class="btn btn-primary btn--compact">Get tickets</a>
+<button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" hidden>Menu</button>
+</div>
+<nav id="site-nav" class="site-nav" aria-label="Main">
+<ul class="site-nav__list">
+<li><a href="./" class="nav-link" aria-current="page">Home</a></li>
+<li><a href="#registration" class="nav-link">Registration</a></li>
+<li><a href="#venue" class="nav-link">Venue</a></li>
+<li><a href="#agenda" class="nav-link">Agenda</a></li>
+<li><a href="../cfp/" class="nav-link">CFP</a></li>
+<li><a href="../communities/" class="nav-link">Communities</a></li>
+<li><a href="#sponsors" class="nav-link">Sponsor</a></li>
+<li><details class="site-nav__dd"><summary class="nav-link">About</summary>
+<ul class="site-nav__menu">
+<li><a href="../about/">About BSides Phoenix</a></li>
+<li><a href="../code-of-conduct/">Code of Conduct</a></li>
+</ul></details></li>
+<li><details class="site-nav__dd"><summary class="nav-link">Events</summary>
+<ul class="site-nav__menu">
+<li><a href="../events/">Past events</a></li>
+</ul></details></li>
+</ul>
 </nav>
 </div>
 </header>
@@ -82,7 +100,7 @@
 <span class="chip"><span aria-hidden="true">📍</span>Mesa, Arizona</span>
 </div>
 <div class="row gap-16">
-<a href="#tickets" class="btn btn-light btn--wide">See ticket options</a>
+<a href="#registration" class="btn btn-light btn--wide">See ticket options</a>
 <a href="#newsletter" class="btn btn-outline-light">Subscribe for updates</a>
 </div>
 </div>
@@ -103,10 +121,10 @@
 </section>
 
 <!-- Tickets -->
-<section id="tickets" class="band">
+<section id="registration" class="band">
 <div class="wrap stack gap-48">
 <div class="stack gap-12 measure">
-<p class="eyebrow">Tickets</p>
+<p class="eyebrow">Registration</p>
 <h2 class="h2">BSides Phoenix is free. Everyone still needs a ticket.</h2>
 <p class="m-0 muted">Pick the way in that suits you. Your registration guarantees entry; swag, t-shirts and other merch are while supplies last.</p>
 </div>
@@ -210,10 +228,10 @@
 </section>
 
 <!-- Program -->
-<section id="program" class="dark on-dark">
+<section id="agenda" class="dark on-dark">
 <div class="wrap stack gap-48">
 <div class="stack gap-12 measure">
-<p class="eyebrow eyebrow--bright">The program</p>
+<p class="eyebrow eyebrow--bright">Agenda</p>
 <h2 class="h2">A full Saturday of talks, hands-on learning and community</h2>
 </div>
 <div class="row gap-24">
@@ -227,7 +245,7 @@
 </div>
 <div class="panel">
 <h3 class="h3">Villages</h3>
-<p class="panel__text">Drop-in spaces to try things out with local groups. Village lineup announced soon.</p>
+<p class="panel__text">Drop-in spaces to try things out with local groups. Village lineup announced soon on our <a href="../communities/" class="panel__link">Communities</a> page.</p>
 </div>
 <div class="panel">
 <h3 class="h3">Official after party</h3>
@@ -239,7 +257,7 @@
 <h3 class="h3">Call for papers</h3>
 <p class="cfp__body">Have something to share? We're looking for talks and workshops from across Arizona's security community. The call for papers opens December 12, 2026.</p>
 </div>
-<a href="#newsletter" class="btn btn-light">Get notified when it opens</a>
+<a href="../cfp/" class="btn btn-light">CFP details</a>
 </div>
 </div>
 </section>
