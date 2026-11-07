@@ -1,7 +1,7 @@
 /* BSides Phoenix 2027 site styles
    Colours come from the design-token custom properties below.
    Fonts: Instrument Sans (body, nav, buttons), DM Mono (headings, dates,
-   venue labels), DotGothic16 (eyebrows) */
+   venue labels), JetBrains Mono (eyebrows) */
 
 /* ---------- Design tokens ----------
    Names and values match the BSides Phoenix design system (tokens.json).
@@ -37,7 +37,7 @@
   /* Type families */
   --font-sans: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
-  --font-pixel: 'DotGothic16', ui-monospace, monospace;
+  --font-code: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
 }
 
 /* ---------- Theme roles ----------
@@ -116,21 +116,17 @@ summary { cursor: pointer; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- Type ---------- */
-/* Eyebrows use DotGothic16. assets/js/eyebrow.js puts each letter in an
-   equal-width cell so the spacing is even; without JS, plain tracking. */
+/* Eyebrows use JetBrains Mono. It is monospaced, so tracking stays even. */
 .eyebrow {
   margin: 0;
-  font-family: var(--font-pixel);
-  font-size: 16px; /* DotGothic16 is drawn on a 16px pixel grid */
+  font-family: var(--font-code);
+  font-size: 14px;
   line-height: 1.4;
-  font-weight: 400;
-  letter-spacing: 0.25em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--orange-text);
 }
-.eyebrow--cells { letter-spacing: 0; }
-.eyebrow__word { display: inline-block; white-space: nowrap; }
-.eyebrow__cell { display: inline-block; width: 0.8em; text-align: center; }
 .eyebrow--plain { color: inherit; }
 .eyebrow--bright { color: var(--event-orange); }
 /* Headings use DM Mono, which comes in 400 and 500 only. */
