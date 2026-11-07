@@ -7,6 +7,10 @@ Single-page site for BSides Phoenix 2027 (Saturday, October 16, 2027 · Mesa, Ar
 - `index.html`: the public landing page (email signup only) while the full site is in preview
 - `preview/index.html`: the full site, marked `noindex` so search engines don't list it yet
 - `code-of-conduct/index.html`: the Code of Conduct (public); every Code of Conduct link on the site points here
+- `cfp/`, `communities/`, `about/`, `events/`: pages of the full site, marked `noindex` like `preview/`
+- `assets/js/nav.js`: the phone Menu button and the About / Events dropdowns (the menu still works without it)
+
+The site menu is copied into `preview/`, `cfp/`, `communities/`, `about/` and `events/`. When you change the menu, change it in all five.
 - `assets/css/site.css`: all page styles (colors, spacing, buttons, sections)
 - `assets/logo/`: logos used on the site; `assets/logo/source/` holds the original exports
 - `assets/og-image.png`: 1200×630 link-preview image for social sites
@@ -16,7 +20,7 @@ Single-page site for BSides Phoenix 2027 (Saturday, October 16, 2027 · Mesa, Ar
 ## Hosting (GitHub Pages)
 
 Every push to `main` runs `.github/workflows/pages.yml`, which copies only the site files
-(`index.html`, `preview/`, `code-of-conduct/`, the two icon PNGs and `assets/`, minus `assets/logo/source/`) and publishes them.
+(`index.html`, `preview/`, `code-of-conduct/`, `cfp/`, `communities/`, `about/`, `events/`, the two icon PNGs and `assets/`, minus `assets/logo/source/`) and publishes them.
 This README is not published.
 
 Repo **Settings → Pages → Source** must be set to **GitHub Actions**.
@@ -35,6 +39,8 @@ To make the full site the main page:
 1. Replace `index.html` with `preview/index.html`
 2. In it, remove the `noindex` meta tag and change every `../` path back to plain paths (`../assets/` → `assets/`, `../favicon-32.png` → `favicon-32.png`, `../apple-touch-icon.png` → `apple-touch-icon.png`)
 3. Delete `preview/` (and its line in the workflow), plus the `.landing` styles at the end of `assets/css/site.css`
+4. In `cfp/`, `communities/`, `about/` and `events/`: remove the `noindex` meta tag and change `../preview/` to `../` in their links
+5. On the new main page, change the menu's `../cfp/`-style links to `cfp/` (they no longer need `../`)
 
 ### Custom domain (bsidesphoenix.org)
 

@@ -36,6 +36,7 @@ jobs:
           cp -R assets _site/assets
           cp -R preview _site/preview
           cp -R code-of-conduct _site/code-of-conduct
+          for d in cfp communities about events; do cp -R "$d" "_site/$d"; done
           rm -rf _site/assets/logo/source
           find _site -type f | sort
       - name: Upload artifact

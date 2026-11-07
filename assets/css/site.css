@@ -246,3 +246,55 @@ summary { cursor: pointer; }
 .doc ul { margin: 0 0 12px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
 .doc__report { background: #f9f6f7; border: 1px solid #ded5d9; padding: 20px 20px 20px 40px; }
 @media (max-width: 640px) { .doc__title { font-size: 32px; } }
+
+/* ---------- Site menu (preview site and its pages) ----------
+   Row 1: logo + date, Get tickets, phone Menu button. Row 2: the menu. */
+.site-header--nav .site-header__inner { row-gap: 8px; }
+.header-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.menu-toggle {
+  font: inherit; font-weight: 600; color: #2a2126; background: #ffffff;
+  border: 2px solid #2a2126; padding: 10px 16px; cursor: pointer;
+}
+.menu-toggle[hidden] { display: none; }
+.site-nav { flex-basis: 100%; border-top: 1px solid #ded5d9; }
+.site-nav__list { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px; }
+.site-nav .nav-link { display: inline-block; padding: 12px 0; }
+.site-nav .nav-link[aria-current="page"] { font-weight: 700; color: #a8005b; }
+.site-nav__dd { position: relative; }
+.site-nav__dd > summary, .site-nav .site-nav__dd > summary.nav-link { list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+.site-nav__dd > summary::-webkit-details-marker { display: none; }
+.site-nav__dd > summary::after {
+  content: ""; display: inline-block; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg); transition: transform 0.15s;
+}
+.site-nav__dd[open] > summary::after { transform: translateY(1px) rotate(-135deg); }
+.site-nav__menu {
+  position: absolute; z-index: 10; top: 100%; left: -16px; min-width: 220px;
+  margin: 0; padding: 8px 0; list-style: none;
+  background: #ffffff; border: 1px solid #ded5d9; box-shadow: 0 8px 24px rgba(28, 21, 25, 0.12);
+}
+.site-nav__menu a, .site-nav__menu a:hover { display: block; padding: 10px 16px; color: #2a2126; text-decoration: none; font-weight: 500; }
+.site-nav__menu a:hover { background: #f9f6f7; }
+.site-nav__menu a[aria-current="page"] { color: #a8005b; font-weight: 700; }
+
+@media (max-width: 900px) {
+  .site-nav__list { flex-direction: column; align-items: stretch; }
+  .site-nav__list > li { border-bottom: 1px solid #ded5d9; }
+  .site-nav .nav-link { display: flex; padding: 14px 0; }
+  .site-nav__menu { position: static; box-shadow: none; border: 0; padding: 0 0 8px 16px; min-width: 0; }
+  .site-nav__menu a { padding: 10px 0; }
+  .js-nav .site-nav { display: none; }
+  .js-nav .site-nav.is-open { display: block; }
+}
+@media (min-width: 901px) {
+  .menu-toggle { display: none; }
+}
+
+/* ---------- Simple content pages (cfp/, communities/, about/, events/) ---------- */
+.page-hero { background: #f9f6f7; border-bottom: 1px solid #ded5d9; }
+.page-hero__lead { margin: 0; font-size: 18px; color: #6b5d64; max-width: 720px; }
+.fact-list { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; border-top: 1px solid #ded5d9; }
+.fact-list li { flex: 1 1 220px; min-width: 0; padding: 20px 24px 20px 0; border-bottom: 1px solid #ded5d9; display: flex; flex-direction: column; gap: 6px; }
+.coming-soon { border: 2px dashed #877880; padding: 24px; color: #6b5d64; }
+.coming-soon p { margin: 0; }
+.panel__link, .panel__link:hover { color: #e0619f; }
