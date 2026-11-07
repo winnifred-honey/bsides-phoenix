@@ -1,6 +1,7 @@
 /* BSides Phoenix 2027 site styles
    Colours come from the design-token custom properties below.
-   Fonts: Poppins (body), Barlow Condensed (dates) */
+   Fonts: Instrument Sans (body, nav, buttons), DM Mono (headings),
+   DotGothic16 (eyebrows), Barlow Condensed (dates) */
 
 /* ---------- Design tokens ----------
    Names and values match the BSides Phoenix design system (tokens.json).
@@ -31,6 +32,12 @@
   --magenta-700: #7f0045;
   --magenta-300: #e0619f;
   --magenta-100: #f9e0ec;
+
+  /* Type families */
+  --font-sans: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+  --font-pixel: 'DotGothic16', ui-monospace, monospace;
+  --font-condensed: 'Barlow Condensed', 'Arial Narrow', sans-serif;
 }
 
 /* ---------- Base ---------- */
@@ -44,7 +51,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 summary { cursor: pointer; }
 
 .page {
-  font-family: Poppins, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   color: var(--charcoal-900);
   background: var(--phx-white);
   font-size: 16px;
@@ -72,21 +79,31 @@ summary { cursor: pointer; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- Type ---------- */
+/* Eyebrows use DotGothic16. assets/js/eyebrow.js puts each letter in an
+   equal-width cell so the spacing is even; without JS, plain tracking. */
 .eyebrow {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.2;
-  font-weight: 500;
-  letter-spacing: 0.3em;
+  font-family: var(--font-pixel);
+  font-size: 16px; /* DotGothic16 is drawn on a 16px pixel grid */
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--orange-text);
 }
+.eyebrow--cells { letter-spacing: 0; }
+.eyebrow__word { display: inline-block; white-space: nowrap; }
+.eyebrow__cell { display: inline-block; width: 0.8em; text-align: center; }
 .eyebrow--plain { color: inherit; }
 .eyebrow--bright { color: var(--event-orange); }
-.h2 { margin: 0; font-size: 32px; line-height: 1.15; font-weight: 600; }
-.h3 { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 600; }
+/* Headings use DM Mono, which comes in 400 and 500 only. */
+.h2, .h3, .hero__title, .ticket__price, .note__title, .faq__q, .doc__title, .doc__summary-title, .doc h2 {
+  font-family: var(--font-mono); font-weight: 500; letter-spacing: -0.02em;
+}
+.h2 { margin: 0; font-size: 32px; line-height: 1.15; }
+.h3 { margin: 0; font-size: 22px; line-height: 1.3; }
 .date-type {
-  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-family: var(--font-condensed);
   font-size: 24px;
   line-height: 1.1;
   font-weight: 600;
@@ -139,7 +156,7 @@ summary { cursor: pointer; }
 }
 .hero__logo { display: block; width: 360px; max-width: 100%; height: auto; }
 .hero__text { display: flex; flex-direction: column; gap: 16px; max-width: 760px; }
-.hero__title { margin: 0; font-size: 56px; line-height: 1.05; font-weight: 700; letter-spacing: -0.01em; }
+.hero__title { margin: 0; font-size: 56px; line-height: 1.05; }
 .hero__date { margin: 0; }
 .hero__tagline { font-size: 18px; font-weight: 500; }
 @media (max-width: 640px) { .hero__title { font-size: 40px; } }
@@ -157,13 +174,13 @@ summary { cursor: pointer; }
 }
 .ticket--featured { border: 2px solid var(--phx-magenta); }
 .ticket__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-.ticket__price { font-size: 32px; line-height: 1.15; font-weight: 700; }
+.ticket__price { font-size: 32px; line-height: 1.15; }
 .ticket__list { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
 .ticket__fine { margin: 0; font-size: 14px; line-height: 1.5; color: var(--charcoal-600); }
 .badge { align-self: flex-start; background: var(--magenta-100); color: var(--charcoal-900); font-size: 14px; font-weight: 500; padding: 4px 12px; }
 .badge--strong { background: var(--phx-magenta); color: var(--phx-white); }
 .note { flex: 1 1 420px; min-width: 0; background: var(--phx-white); border-top: 4px solid var(--event-orange); padding: 24px; }
-.note__title { margin: 0 0 8px; font-size: 18px; line-height: 1.3; font-weight: 600; }
+.note__title { margin: 0 0 8px; font-size: 18px; line-height: 1.3; }
 .note__text { margin: 0; font-size: 15px; color: var(--charcoal-900); }
 
 /* ---------- Key dates ---------- */
@@ -227,7 +244,7 @@ summary { cursor: pointer; }
 .rule-top { border-top: 1px solid var(--charcoal-200); }
 .faq { display: flex; flex-direction: column; border-top: 1px solid var(--charcoal-200); }
 .faq__item { border-bottom: 1px solid var(--charcoal-200); padding: 20px 0; }
-.faq__q { font-size: 18px; font-weight: 600; }
+.faq__q { font-size: 18px; }
 .faq__a { margin: 12px 0 0; color: var(--charcoal-900); }
 
 /* ---------- Newsletter ---------- */
@@ -264,14 +281,14 @@ summary { cursor: pointer; }
 @media (max-width: 640px) { .landing__inner { padding-top: 40px; padding-bottom: 200px; } }
 
 /* ---------- Long-form pages (code-of-conduct/) ---------- */
-.doc__title { margin: 0; font-size: 40px; line-height: 1.1; font-weight: 700; }
+.doc__title { margin: 0; font-size: 40px; line-height: 1.1; }
 .doc__summary { background: var(--phx-white); border-left: 6px solid var(--phx-magenta); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-.doc__summary-title { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 600; color: var(--phx-magenta); }
+.doc__summary-title { margin: 0; font-size: 22px; line-height: 1.3; color: var(--phx-magenta); }
 .doc__summary p { margin: 0; font-size: 17px; }
 .doc__toc-title { margin: 0 0 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal-600); }
 .doc__toc ul { margin: 0; padding: 0; list-style: none; columns: 2 240px; column-gap: 32px; }
 .doc__toc li { padding: 4px 0; break-inside: avoid; }
-.doc h2 { margin: 48px 0 12px; font-size: 26px; line-height: 1.2; font-weight: 600; scroll-margin-top: 16px; }
+.doc h2 { margin: 48px 0 12px; font-size: 26px; line-height: 1.2; scroll-margin-top: 16px; }
 .doc h2:first-child { margin-top: 0; }
 .doc p { margin: 0 0 12px; }
 .doc ul { margin: 0 0 12px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
