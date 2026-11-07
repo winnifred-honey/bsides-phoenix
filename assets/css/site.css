@@ -61,8 +61,10 @@
 :root { color-scheme: light dark; }
 
 /* Dark mode follows the visitor's device setting. */
+/* Dark theme: follows the device setting unless the visitor picked a mode with the
+   theme switch (assets/js/theme.js sets data-theme="light" or "dark" on <html>). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --surface: var(--charcoal-950);
     --surface-alt: var(--charcoal-900);
     --ink: var(--charcoal-100);
@@ -74,8 +76,22 @@
     --focus: var(--magenta-300);
   }
   /* The agenda band shares the dark page ground, so give it edges. */
-  .dark { border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
+  :root:not([data-theme="light"]) .dark { border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
 }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+    --surface: var(--charcoal-950);
+    --surface-alt: var(--charcoal-900);
+    --ink: var(--charcoal-100);
+    --ink-muted: var(--charcoal-300);
+    --accent-text: var(--magenta-300);
+    --accent-hover: var(--magenta-200);
+    --orange-text: var(--event-orange);
+    --divider: var(--charcoal-800);
+    --focus: var(--magenta-300);
+}
+:root[data-theme="dark"] .dark { border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
+:root[data-theme="light"] { color-scheme: light; }
 
 /* ---------- Base ---------- */
 html { scroll-behavior: smooth; }
@@ -381,3 +397,24 @@ summary { cursor: pointer; }
 .coming-soon { border: 2px dashed var(--border); padding: 24px; color: var(--ink-muted); }
 .coming-soon p { margin: 0; }
 .panel__link, .panel__link:hover { color: var(--magenta-300); }
+
+/* ---------- Light / dark switch (assets/js/theme.js) ---------- */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0;
+  font: inherit; color: var(--ink); background: transparent; border: 2px solid var(--border); cursor: pointer;
+}
+.theme-toggle[hidden] { display: none; }
+.theme-toggle svg { width: 20px; height: 20px; }
+.theme-toggle .theme-toggle__moon { display: none; }
+.theme-toggle[data-current="dark"] .theme-toggle__sun { display: none; }
+.theme-toggle[data-current="dark"] .theme-toggle__moon { display: block; }
+.site-footer .theme-toggle { color: var(--charcoal-100); border-color: var(--charcoal-500); }
+/* Header logo: the colour lockup on light grounds, the white lockup on dark,
+   following the same rules as the theme (device setting or the visitor's choice). */
+.brand__logo--dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brand__logo--light { display: none; }
+  :root:not([data-theme="light"]) .brand__logo--dark { display: block; }
+}
+:root[data-theme="dark"] .brand__logo--light { display: none; }
+:root[data-theme="dark"] .brand__logo--dark { display: block; }
