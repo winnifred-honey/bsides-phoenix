@@ -195,6 +195,8 @@ summary { cursor: pointer; }
 .hero__tagline { font-size: 16px; font-weight: 400; white-space: nowrap; }
 @media (max-width: 640px) { .hero__date { font-size: 18px; } .hero__tagline { font-size: 14px; } }
 @media (max-width: 640px) { .hero__title { font-size: 40px; } }
+/* Hero side margin: space-16 (64px, "outer margin on posters and hero sections") on wider screens */
+@media (min-width: 641px) { .hero__inner { padding-left: 64px; padding-right: 64px; } }
 
 /* ---------- About ---------- */
 .about__intro { flex: 1 1 360px; }
