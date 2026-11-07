@@ -38,6 +38,10 @@
   --font-sans: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
   --font-code: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  /* Corner radius: small tags, buttons, cards and shaded boxes */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 }
 
 /* ---------- Theme roles ----------
@@ -381,3 +385,12 @@ summary { cursor: pointer; }
 .coming-soon { border: 2px dashed var(--border); padding: 24px; color: var(--ink-muted); }
 .coming-soon p { margin: 0; }
 .panel__link, .panel__link:hover { color: var(--magenta-300); }
+
+/* ---------- Rounded corners ----------
+   One place for all corner rounding (tokens --radius-sm/md/lg above).
+   Logos are left square: the brand says to place them exactly as supplied. */
+.chip, .badge { border-radius: var(--radius-sm); }
+.btn, .menu-toggle { border-radius: var(--radius-md); }
+.ticket, .note, .panel, .cfp, .venue__map-frame, .placeholder, .supporters__empty,
+.newsletter__box, .doc__summary, .doc__report, .site-nav__menu, .coming-soon { border-radius: var(--radius-lg); }
+.site-nav__menu { overflow: hidden; }
