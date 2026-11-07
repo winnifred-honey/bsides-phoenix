@@ -383,7 +383,7 @@ summary { cursor: pointer; }
 .panel__link, .panel__link:hover { color: var(--magenta-300); }
 
 /* ---------- Rounded corners ----------
-   One place for all corner rounding (tokens --radius-sm/md/lg above).
+   One place for all corner rounding: change the three sizes on the :root line.
    Logos are left square: the brand says to place them exactly as supplied. */
 :root { --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; }
 .chip, .badge { border-radius: var(--radius-sm); }
