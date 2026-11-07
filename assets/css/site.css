@@ -389,15 +389,6 @@ summary { cursor: pointer; }
   .menu-toggle { display: none; }
 }
 
-/* ---------- Simple content pages (cfp/, communities/, about/, events/) ---------- */
-.page-hero { background: var(--surface-alt); border-bottom: 1px solid var(--divider); }
-.page-hero__lead { margin: 0; font-size: 18px; color: var(--ink-muted); max-width: 720px; }
-.fact-list { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; border-top: 1px solid var(--divider); }
-.fact-list li { flex: 1 1 220px; min-width: 0; padding: 20px 24px 20px 0; border-bottom: 1px solid var(--divider); display: flex; flex-direction: column; gap: 6px; }
-.coming-soon { border: 2px dashed var(--border); padding: 24px; color: var(--ink-muted); }
-.coming-soon p { margin: 0; }
-.panel__link, .panel__link:hover { color: var(--magenta-300); }
-
 /* ---------- Light / dark switch (assets/js/theme.js) ---------- */
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0;
@@ -418,3 +409,12 @@ summary { cursor: pointer; }
 }
 :root[data-theme="dark"] .brand__logo--light { display: none; }
 :root[data-theme="dark"] .brand__logo--dark { display: block; }
+
+/* ---------- Simple content pages (cfp/, communities/, about/, events/) ---------- */
+.page-hero { background: var(--surface-alt); border-bottom: 1px solid var(--divider); }
+.page-hero__lead { margin: 0; font-size: 18px; color: var(--ink-muted); max-width: 720px; }
+.fact-list { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; border-top: 1px solid var(--divider); }
+.fact-list li { flex: 1 1 220px; min-width: 0; padding: 20px 24px 20px 0; border-bottom: 1px solid var(--divider); display: flex; flex-direction: column; gap: 6px; }
+.coming-soon { border: 2px dashed var(--border); padding: 24px; color: var(--ink-muted); }
+.coming-soon p { margin: 0; }
+.panel__link, .panel__link:hover { color: var(--magenta-300); }
