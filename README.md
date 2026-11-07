@@ -37,7 +37,7 @@ The preview link isn't private: anyone you send it to can open it.
 To make the full site the main page:
 
 1. Replace `index.html` with `preview/index.html`
-2. In it, remove the `noindex` meta tag and change every `../` path back to plain paths (`../assets/` → `assets/`, `../favicon-32.png` → `favicon-32.png`, `../apple-touch-icon.png` → `apple-touch-icon.png`)
+2. In it, change the `<title>` from "Full site preview · BSides Phoenix 2027" to the event title, remove the `noindex` meta tag and change every `../` path back to plain paths (`../assets/` → `assets/`, `../favicon-32.png` → `favicon-32.png`, `../apple-touch-icon.png` → `apple-touch-icon.png`)
 3. Delete `preview/` (and its line in the workflow), plus the `.landing` styles at the end of `assets/css/site.css`
 4. In `cfp/`, `communities/`, `about/` and `events/`: remove the `noindex` meta tag and change `../preview/` to `../` in their links
 5. On the new main page, change the menu's `../cfp/`-style links to `cfp/` (they no longer need `../`)
