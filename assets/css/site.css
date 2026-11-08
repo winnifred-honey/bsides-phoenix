@@ -384,3 +384,13 @@ summary { cursor: pointer; }
 .coming-soon { border: 2px dashed var(--border); padding: 24px; color: var(--ink-muted); }
 .coming-soon p { margin: 0; }
 .panel__link, .panel__link:hover { color: var(--magenta-300); }
+
+/* ---------- Rounded corners ----------
+   One place for all corner rounding: change the three sizes on the :root line.
+   Logos are left square: the brand says to place them exactly as supplied. */
+:root { --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; }
+.chip, .badge { border-radius: var(--radius-sm); }
+.btn, .menu-toggle { border-radius: var(--radius-md); }
+.ticket, .note, .panel, .cfp, .venue__map-frame, .placeholder, .supporters__empty,
+.newsletter__box, .doc__summary, .doc__report, .site-nav__menu, .coming-soon { border-radius: var(--radius-lg); }
+.site-nav__menu { overflow: hidden; }
