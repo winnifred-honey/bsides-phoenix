@@ -38,7 +38,10 @@
   --font-sans: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
   --font-code: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  /* Page gutter: the side margin every section's content keeps from the screen edge */
+  --gutter: 24px;
 }
+@media (min-width: 641px) { :root { --gutter: 64px; } }
 
 /* ---------- Theme roles ----------
    Named after the design system's semantic tokens. Rules below use these
@@ -96,7 +99,7 @@ summary { cursor: pointer; }
 }
 
 /* ---------- Layout helpers ---------- */
-.wrap { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 80px var(--gutter); }
 .wrap--narrow { max-width: 880px; }
 .stack { display: flex; flex-direction: column; }
 .row { display: flex; flex-wrap: wrap; }
@@ -172,7 +175,7 @@ summary { cursor: pointer; }
 /* ---------- Header ---------- */
 .site-header { border-bottom: 1px solid var(--divider); background: var(--surface); }
 .site-header__inner {
-  max-width: 1200px; margin: 0 auto; padding: 16px 24px;
+  max-width: 1200px; margin: 0 auto; padding: 16px var(--gutter);
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
 }
 .brand, .brand:hover { display: flex; align-items: center; gap: 24px; text-decoration: none; color: var(--ink); }
@@ -185,7 +188,7 @@ summary { cursor: pointer; }
 .hero { position: relative; overflow: hidden; background: linear-gradient(90deg, var(--duotone-orange) 0%, var(--duotone-magenta) 100%); color: var(--phx-white); }
 .hero__skyline { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 240px; display: block; }
 .hero__inner {
-  position: relative; max-width: 1200px; margin: 0 auto; padding: 72px 24px 280px;
+  position: relative; max-width: 1200px; margin: 0 auto; padding: 72px var(--gutter) 280px;
   display: flex; flex-direction: column; align-items: flex-start; gap: 32px;
 }
 .hero__logo { display: block; width: 360px; max-width: 100%; height: auto; }
@@ -284,7 +287,7 @@ summary { cursor: pointer; }
 
 /* ---------- Newsletter ---------- */
 .newsletter { background: var(--charcoal-800); color: var(--charcoal-100); }
-.newsletter__inner { padding: 64px 24px; align-items: center; justify-content: space-between; }
+.newsletter__inner { padding: 64px var(--gutter); align-items: center; justify-content: space-between; }
 .half { flex: 1 1 420px; min-width: 0; }
 .newsletter .h2 { color: var(--phx-white); }
 .newsletter__lead { margin: 0; color: var(--charcoal-300); }
@@ -297,14 +300,14 @@ summary { cursor: pointer; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--charcoal-950); color: var(--charcoal-300); }
-.site-footer__inner { padding: 48px 24px; justify-content: space-between; align-items: flex-start; }
+.site-footer__inner { padding: 48px var(--gutter); justify-content: space-between; align-items: flex-start; }
 .site-footer__about { flex: 1 1 360px; min-width: 0; display: flex; gap: 16px; align-items: flex-start; }
 .site-footer__badge { flex: 0 0 72px; display: block; width: 72px; height: 72px; }
 .site-footer__text { margin: 0; font-size: 14px; line-height: 1.5; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; }
 .footer-link, .footer-link:hover { color: var(--magenta-300); padding: 10px 0; }
 .site-footer__legal { border-top: 1px solid var(--charcoal-800); }
-.site-footer__legal p { max-width: 1200px; margin: 0 auto; padding: 16px 24px; font-size: 14px; color: var(--charcoal-400); }
+.site-footer__legal p { max-width: 1200px; margin: 0 auto; padding: 16px var(--gutter); font-size: 14px; color: var(--charcoal-400); }
 
 /* ---------- Landing page (index.html while the full site is at preview/) ---------- */
 .landing { min-height: 100vh; box-sizing: border-box; }
