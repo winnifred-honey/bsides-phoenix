@@ -284,6 +284,45 @@ summary { cursor: pointer; }
 .venue__map-frame { display: block; width: 100%; flex: 1 1 auto; min-height: 320px; border: 0; background: var(--charcoal-100); }
 .venue__directions, .venue__directions:hover { align-self: flex-start; color: var(--phx-white); font-weight: 600; font-size: 15px; }
 
+/* ---------- Sponsor strip (below the hero) ----------
+   A row of logo tiles that scrolls sideways. The list is written twice so the loop is
+   seamless; the second copy is hidden from screen readers and keyboard focus.
+   It pauses on hover, on keyboard focus and with the Pause button (assets/js/sponsor-strip.js),
+   and doesn't move at all when the device asks for reduced motion (WCAG 2.2.2). */
+.sponsor-strip { background: var(--surface-alt); border-bottom: 1px solid var(--divider); padding: 24px 0; }
+.sponsor-strip__head {
+  max-width: 1200px; margin: 0 auto 16px; padding: 0 var(--gutter);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px;
+}
+.sponsor-strip__title {
+  margin: 0; font-family: var(--font-code); font-size: 14px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted);
+}
+.sponsor-strip__actions { display: flex; align-items: center; gap: 16px; }
+.sponsor-strip__cta { font-weight: 600; color: var(--accent-text); }
+.sponsor-strip__pause {
+  font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); background: transparent;
+  border: 2px solid var(--border); border-radius: var(--radius-md, 0); padding: 6px 14px; min-height: 36px; cursor: pointer;
+}
+.sponsor-strip__pause[hidden] { display: none; }
+.sponsor-strip__viewport { overflow: hidden; }
+.sponsor-strip__track { display: flex; width: max-content; animation: sponsor-scroll 40s linear infinite; }
+.sponsor-strip:hover .sponsor-strip__track,
+.sponsor-strip:focus-within .sponsor-strip__track,
+.sponsor-strip.is-paused .sponsor-strip__track { animation-play-state: paused; }
+.sponsor-strip__list { display: flex; gap: 16px; margin: 0; padding: 0 16px 0 0; list-style: none; }
+.sponsor-strip__tile {
+  display: flex; align-items: center; justify-content: center; width: 180px; height: 88px;
+  background: var(--surface); border: 2px dashed var(--border); border-radius: var(--radius-lg, 0);
+  color: var(--ink-muted); font-size: 14px; font-weight: 600; text-decoration: none;
+}
+.sponsor-strip__tile:hover { border-color: var(--accent-text); color: var(--accent-text); }
+@keyframes sponsor-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-strip__track { animation: none; }
+  .sponsor-strip__viewport { overflow-x: auto; }
+}
+
 /* ---------- Sponsors ---------- */
 .sponsors__top { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end; justify-content: space-between; }
 .sponsors__intro { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
