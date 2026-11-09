@@ -18,12 +18,14 @@
 <link rel="stylesheet" href="../assets/css/site.css">
 <script src="../assets/js/theme.js" defer></script>
 <script src="../assets/js/nav.js" defer></script>
+<script src="../assets/js/forms-config.js" defer></script>
+<script src="../assets/js/forms.js" defer></script>
 </head>
 <body>
 <div class="page">
 <a href="#top" class="skip-link">Skip to main content</a>
 
-<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/ and events/. Change all of them together. -->
+<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/, events/, sponsor/, volunteer/, sponsors/, partners/, supporters/ and villages/. Change all of them together. -->
 <header class="site-header site-header--nav">
 <div class="site-header__inner">
 <a href="../preview/" class="brand">
@@ -46,11 +48,12 @@
 <li><a href="../preview/#agenda" class="nav-link">Agenda</a></li>
 <li><a href="../cfp/" class="nav-link" aria-current="page">CFP</a></li>
 <li><a href="../communities/" class="nav-link">Communities</a></li>
-<li><a href="../preview/#sponsors" class="nav-link">Sponsor</a></li>
+<li><a href="../sponsor/" class="nav-link">Sponsor</a></li>
 <li><details class="site-nav__dd"><summary class="nav-link">About</summary>
 <ul class="site-nav__menu">
 <li><a href="../about/">About BSides Phoenix</a></li>
 <li><a href="../code-of-conduct/">Code of Conduct</a></li>
+<li><a href="../supporters/">Supporters</a></li>
 </ul></details></li>
 <li><details class="site-nav__dd"><summary class="nav-link">Events</summary>
 <ul class="site-nav__menu">
@@ -84,7 +87,13 @@
 
 <div class="stack gap-16 measure">
 <h2 class="h2">How to submit</h2>
-<p class="m-0">Submissions open December 12, 2026. Talk formats, lengths and topics will be posted here when the call for papers opens. Subscribe to our newsletter and we'll let you know.</p>
+<p class="m-0">Submissions open December 12, 2026 and close June 30, 2027. Short talks and longer sessions are both welcome, and so are first-time speakers.</p>
+<ul class="ticket__list">
+<li><b>Short talk:</b> 25 minutes</li>
+<li><b>Session:</b> 50 minutes, about 40 minutes of talk plus 10 for questions</li>
+<li><b>Workshop:</b> 1 hour 50 minutes, hands-on</li>
+</ul>
+<p class="m-0">Not sure which length fits? Choose "Either length" and we'll pick whichever works best in the program.</p>
 <div class="row gap-16">
 <a href="../preview/#newsletter" class="btn btn-primary">Get notified when it opens</a>
 </div>
@@ -93,6 +102,159 @@
 <div class="stack gap-16 measure">
 <h2 class="h2">For speakers</h2>
 <p class="m-0">Speakers and workshop leads follow our <a href="../code-of-conduct/">Code of Conduct</a>. If your material includes content that some people may find distressing, such as graphic images or discussion of abuse, add a content warning at the start and in your abstract.</p>
+</div>
+
+<div class="stack gap-24" id="submit">
+<h2 class="h2">Submit a talk</h2>
+<!-- Form: saves to Notion through the Apps Script in forms/apps-script/. Switched on in assets/js/forms-config.js -->
+<div class="form-block">
+<div class="form__notice" data-form-notice>
+<p class="m-0" data-notice-text>This form isn't open yet.</p>
+<p class="m-0">Questions? Email cassidy@bsidesphoenix[.]org.</p>
+</div>
+<form class="form" data-form="cfp" method="post" novalidate aria-label="Submit a talk">
+<div class="form__errors" tabindex="-1" role="alert" hidden>
+<h3 class="form__errors-title">Please check these answers</h3>
+<ul></ul>
+</div>
+<fieldset class="form__fields" data-form-fields disabled>
+<h3 class="form__section">Your talk</h3>
+<div class="field">
+<label class="field__label" for="cfp-title">Talk title <span class="field__req">(required)</span></label>
+<input type="text" id="cfp-title" name="title" aria-describedby="cfp-title-error" required maxlength="150">
+<p class="field__error" id="cfp-title-error" hidden></p>
+</div>
+<fieldset class="field field--group" data-required="Choose a format." aria-describedby="cfp-format-error">
+<legend class="field__label">Format <span class="field__req">(required)</span></legend>
+<div class="choices choices--cards">
+<label class="choice" for="cfp-format-1"><input type="radio" id="cfp-format-1" name="format" value="Short talk"><span><span class="choice__name">Short talk</span><span class="choice__desc">25 minutes</span></span></label>
+<label class="choice" for="cfp-format-2"><input type="radio" id="cfp-format-2" name="format" value="Session"><span><span class="choice__name">Session</span><span class="choice__desc">50 minutes: about 40 minutes of talk plus 10 for questions</span></span></label>
+<label class="choice" for="cfp-format-3"><input type="radio" id="cfp-format-3" name="format" value="Either length"><span><span class="choice__name">Either length</span><span class="choice__desc">We&#x27;ll choose whichever fits the program best</span></span></label>
+<label class="choice" for="cfp-format-4"><input type="radio" id="cfp-format-4" name="format" value="Workshop"><span><span class="choice__name">Workshop</span><span class="choice__desc">1 hour 50 minutes, hands-on</span></span></label>
+</div>
+<p class="field__error" id="cfp-format-error" hidden></p>
+</fieldset>
+<fieldset class="field field--group" data-required="Choose a level." aria-describedby="cfp-level-error">
+<legend class="field__label">Level <span class="field__req">(required)</span></legend>
+<div class="choices">
+<label class="choice" for="cfp-level-1"><input type="radio" id="cfp-level-1" name="level" value="Beginner"><span><span class="choice__name">Beginner</span></span></label>
+<label class="choice" for="cfp-level-2"><input type="radio" id="cfp-level-2" name="level" value="Intermediate"><span><span class="choice__name">Intermediate</span></span></label>
+<label class="choice" for="cfp-level-3"><input type="radio" id="cfp-level-3" name="level" value="Advanced"><span><span class="choice__name">Advanced</span></span></label>
+</div>
+<p class="field__error" id="cfp-level-error" hidden></p>
+</fieldset>
+<fieldset class="field field--group" data-required="Tell us whether this talk has been given before." aria-describedby="cfp-talk-history-error">
+<legend class="field__label">Has this talk been given before? <span class="field__req">(required)</span></legend>
+<div class="choices choices--cards">
+<label class="choice" for="cfp-talk-history-1"><input type="radio" id="cfp-talk-history-1" name="talk_history" value="Original"><span><span class="choice__name">Original</span><span class="choice__desc">A new talk I haven&#x27;t given before</span></span></label>
+<label class="choice" for="cfp-talk-history-2"><input type="radio" id="cfp-talk-history-2" name="talk_history" value="Written for this audience"><span><span class="choice__name">Written for this audience</span><span class="choice__desc">Original and tailored to Arizona or BSides Phoenix attendees</span></span></label>
+<label class="choice" for="cfp-talk-history-3"><input type="radio" id="cfp-talk-history-3" name="talk_history" value="Given before"><span><span class="choice__name">Given before</span><span class="choice__desc">Updated versions of earlier talks are welcome too</span></span></label>
+</div>
+<p class="field__error" id="cfp-talk-history-error" hidden></p>
+</fieldset>
+<div class="field-reveal" data-show-if="talk_history:Given before">
+<div class="field">
+<label class="field__label" for="cfp-given-before-at">Where and when have you given it?</label>
+<p class="field__hint" id="cfp-given-before-at-hint">For example, the event name and year. Links to recordings or slides can go under Past talks or links.</p>
+<input type="text" id="cfp-given-before-at" name="given_before_at" aria-describedby="cfp-given-before-at-hint cfp-given-before-at-error" maxlength="300">
+<p class="field__error" id="cfp-given-before-at-error" hidden></p>
+</div>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-abstract">Abstract <span class="field__req">(required)</span></label>
+<p class="field__hint" id="cfp-abstract-hint">Shown on the agenda if your talk is accepted.</p>
+<textarea id="cfp-abstract" name="abstract" aria-describedby="cfp-abstract-hint cfp-abstract-error" required data-required="Enter an abstract." rows="5" maxlength="1500"></textarea>
+<p class="field__error" id="cfp-abstract-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-for-reviewers">Details for reviewers <span class="field__req">(required)</span></label>
+<p class="field__hint" id="cfp-for-reviewers-hint">An outline, what attendees will learn and anything else that helps us understand your talk. Only the review committee sees this.</p>
+<textarea id="cfp-for-reviewers" name="for_reviewers" aria-describedby="cfp-for-reviewers-hint cfp-for-reviewers-error" required data-required="Enter details for reviewers." rows="7" maxlength="2000"></textarea>
+<p class="field__error" id="cfp-for-reviewers-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-content-warning">Content warning</label>
+<p class="field__hint" id="cfp-content-warning-hint">If your talk includes content some people may find distressing, such as graphic images or discussion of abuse, describe it here. Leave empty if not.</p>
+<input type="text" id="cfp-content-warning" name="content_warning" aria-describedby="cfp-content-warning-hint cfp-content-warning-error" maxlength="300">
+<p class="field__error" id="cfp-content-warning-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-av-needs">AV or workshop needs</label>
+<p class="field__hint" id="cfp-av-needs-hint">For example, extra power, internet access or laptops attendees should bring.</p>
+<textarea id="cfp-av-needs" name="av_needs" aria-describedby="cfp-av-needs-hint cfp-av-needs-error" rows="3" maxlength="1000"></textarea>
+<p class="field__error" id="cfp-av-needs-error" hidden></p>
+</div>
+<h3 class="form__section">About you</h3>
+<div class="field">
+<label class="field__label" for="cfp-speaker-name">Your name <span class="field__req">(required)</span></label>
+<input type="text" id="cfp-speaker-name" name="speaker_name" aria-describedby="cfp-speaker-name-error" required autocomplete="name" maxlength="200">
+<p class="field__error" id="cfp-speaker-name-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-email">Email <span class="field__req">(required)</span></label>
+<input type="email" id="cfp-email" name="email" aria-describedby="cfp-email-error" required autocomplete="email" maxlength="254">
+<p class="field__error" id="cfp-email-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-pronouns">Pronouns</label>
+<input type="text" id="cfp-pronouns" name="pronouns" aria-describedby="cfp-pronouns-error" maxlength="40">
+<p class="field__error" id="cfp-pronouns-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-bio">Short bio <span class="field__req">(required)</span></label>
+<p class="field__hint" id="cfp-bio-hint">Shown on the agenda if your talk is accepted.</p>
+<textarea id="cfp-bio" name="bio" aria-describedby="cfp-bio-hint cfp-bio-error" required data-required="Enter a short bio." rows="4" maxlength="1000"></textarea>
+<p class="field__error" id="cfp-bio-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-co-speakers">Co-speakers</label>
+<p class="field__hint" id="cfp-co-speakers-hint">Names and emails of anyone presenting with you.</p>
+<input type="text" id="cfp-co-speakers" name="co_speakers" aria-describedby="cfp-co-speakers-hint cfp-co-speakers-error" maxlength="500">
+<p class="field__error" id="cfp-co-speakers-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="cfp-past-talks">Past talks or links</label>
+<p class="field__hint" id="cfp-past-talks-hint">Recordings, slides or a website. New speakers are very welcome, so leave this empty if you don't have any.</p>
+<textarea id="cfp-past-talks" name="past_talks" aria-describedby="cfp-past-talks-hint cfp-past-talks-error" rows="3" maxlength="1000"></textarea>
+<p class="field__error" id="cfp-past-talks-error" hidden></p>
+</div>
+<fieldset class="field field--group" data-required="Choose when you can present." aria-describedby="cfp-availability-error">
+<legend class="field__label">When can you present on Saturday, October 16, 2027? <span class="field__req">(required)</span></legend>
+<div class="choices">
+<label class="choice" for="cfp-availability-1"><input type="radio" id="cfp-availability-1" name="availability" value="Morning"><span><span class="choice__name">Morning</span></span></label>
+<label class="choice" for="cfp-availability-2"><input type="radio" id="cfp-availability-2" name="availability" value="Afternoon"><span><span class="choice__name">Afternoon</span></span></label>
+<label class="choice" for="cfp-availability-3"><input type="radio" id="cfp-availability-3" name="availability" value="Either"><span><span class="choice__name">Either</span></span></label>
+</div>
+<p class="field__error" id="cfp-availability-error" hidden></p>
+</fieldset>
+<div class="field field--check">
+<div class="check"><input type="checkbox" id="cfp-first-time" name="first_time" value="yes" aria-describedby="cfp-first-time-error"><label for="cfp-first-time">This would be my first conference talk</label></div>
+<p class="field__error" id="cfp-first-time-error" hidden></p>
+</div>
+<div class="field field--check">
+<div class="check"><input type="checkbox" id="cfp-arizona" name="arizona" value="yes" aria-describedby="cfp-arizona-error"><label for="cfp-arizona">I live or work in Arizona</label></div>
+<p class="field__error" id="cfp-arizona-error" hidden></p>
+</div>
+<div class="field field--check">
+<div class="check"><input type="checkbox" id="cfp-coc" name="coc" value="yes" aria-describedby="cfp-coc-error" required data-required="Agree to the Code of Conduct to submit."><label for="cfp-coc">I have read and agree to follow the <a href="../code-of-conduct/">Code of Conduct</a> <span class="field__req">(required)</span></label></div>
+<p class="field__error" id="cfp-coc-error" hidden></p>
+</div>
+<div class="form__hp" aria-hidden="true">
+<label for="cfp-hp">Leave this empty</label>
+<input type="text" id="cfp-hp" name="company_website" tabindex="-1" autocomplete="off">
+</div>
+<div class="form__actions">
+<button type="submit" class="btn btn-primary">Submit talk</button>
+<p class="form__status" role="status" aria-live="polite"></p>
+</div>
+<p class="form__small">We'll use this information to review your submission and, if it's accepted, to contact you and list your talk.</p>
+</fieldset>
+</form>
+<div class="form__done" data-form-done tabindex="-1" hidden>
+<h3 class="h3">Thanks! Your talk has been submitted.</h3>
+<p class="m-0">We'll be in touch after reviews. Speakers will be notified by July 31, 2027.</p>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -106,6 +268,11 @@
 </div>
 <nav aria-label="Footer" class="footer-nav">
 <a href="https://www.zeffy.com/en-US/ticketing/bsides-phoenix" class="footer-link">Tickets</a>
+<a href="../cfp/" class="footer-link">CFP</a>
+<a href="../communities/" class="footer-link">Communities</a>
+<a href="../about/" class="footer-link">About</a>
+<a href="../sponsor/" class="footer-link">Sponsor</a>
+<a href="../volunteer/" class="footer-link">Volunteer</a>
 <a href="../code-of-conduct/" class="footer-link">Code of Conduct</a>
 <a href="https://www.linkedin.com/company/bsidesphx" class="footer-link">LinkedIn</a>
 <a href="mailto:sponsorships@bsidesphoenix.org" class="footer-link">Sponsorships</a>

@@ -287,11 +287,63 @@ summary { cursor: pointer; }
 /* ---------- Sponsors ---------- */
 .sponsors__top { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end; justify-content: space-between; }
 .sponsors__intro { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+/* Sponsor tiers: logo boxes sized by tier, biggest first. Each tier's column count
+   sets the box width, so Bronze boxes are a quarter the width of Marquee. */
+.sponsor-tiers { display: flex; flex-direction: column; gap: 32px; }
+.sponsor-tier { display: flex; flex-direction: column; gap: 12px; }
+.sponsor-tier__name {
+  margin: 0; font-family: var(--font-code); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted);
+}
+.sponsor-tier__grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.sponsor-tier__grid--marquee { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sponsor-tier__grid--platinum { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sponsor-tier__grid--gold { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sponsor-tier__grid--silver { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.sponsor-tier__grid--bronze { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.sponsor-tier__grid--partners { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.sponsor-slot {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  border: 2px dashed var(--border); border-radius: var(--radius-md, 10px);
+  color: var(--ink-muted); font-family: var(--font-mono); padding: 8px;
+}
+.sponsor-slot--marquee { min-height: 180px; font-size: 18px; }
+.sponsor-slot--platinum { min-height: 140px; font-size: 16px; }
+.sponsor-slot--gold { min-height: 112px; font-size: 15px; }
+.sponsor-slot--silver { min-height: 88px; font-size: 13px; }
+.sponsor-slot--bronze { min-height: 72px; font-size: 12px; }
+.sponsor-slot--partner { min-height: 88px; font-size: 13px; }
+@media (max-width: 900px) {
+  .sponsor-tier__grid--platinum { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sponsor-tier__grid--gold { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sponsor-tier__grid--silver, .sponsor-tier__grid--partners { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sponsor-tier__grid--bronze { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .sponsor-tier__grid--marquee { grid-template-columns: minmax(0, 1fr); }
+  .sponsor-tier__grid--gold, .sponsor-tier__grid--silver, .sponsor-tier__grid--partners { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sponsor-tier__grid--bronze { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sponsor-slot--marquee { min-height: 140px; }
+  .sponsor-slot--platinum { min-height: 112px; }
+  .sponsor-slot--gold { min-height: 96px; }
+  .sponsor-slot--silver, .sponsor-slot--partner { min-height: 80px; }
+  .sponsor-slot--bronze { min-height: 64px; font-size: 11px; }
+}
 .placeholder {
   border: 2px dashed var(--border); min-height: 160px;
   display: flex; align-items: center; justify-content: center;
   color: var(--ink-muted); font-size: 14px; text-align: center; padding: 24px;
 }
+
+/* ---------- Team (about/) ---------- */
+.team-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.team-card { border: 1.5px solid var(--divider); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.team-card--open { border-style: dashed; border-color: var(--border); }
+.team-card__area { margin: 0; font-family: var(--font-mono); font-size: 18px; font-weight: 500; }
+.team-card__name { margin: 0; font-weight: 700; }
+.team-card__desc { margin: 0; font-size: 14px; color: var(--ink-muted); }
+/* Notes stacked in a column (about/, communities/) keep their natural height */
+.stack > .note { flex: none; }
 
 /* ---------- Supporters ---------- */
 .supporters__empty {
@@ -463,6 +515,52 @@ html { scroll-padding-top: calc(var(--header-h, 96px) + 16px); }
 .coming-soon { border: 2px dashed var(--border); padding: 24px; color: var(--ink-muted); }
 .coming-soon p { margin: 0; }
 .panel__link, .panel__link:hover { color: var(--magenta-300); }
+
+/* ---------- Forms (cfp/, sponsor/, volunteer/, villages/; see assets/js/forms.js) ---------- */
+:root { --error: #b3261e; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --error: #ff8a80; } }
+:root[data-theme="dark"] { --error: #ff8a80; }
+.form-block { display: grid; gap: 16px; max-width: 760px; min-width: 0; }
+.form-block [hidden] { display: none !important; }
+.form__notice { border: 2px dashed var(--border); padding: 20px 24px; display: grid; gap: 6px; color: var(--ink-muted); }
+.form { display: grid; gap: 16px; min-width: 0; }
+.form__fields { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 24px; }
+.form__fields:disabled { opacity: .75; }
+.form__section { font-family: var(--font-mono); font-weight: 500; font-size: 20px; margin: 8px 0 0; padding-top: 24px; border-top: 1px solid var(--divider); }
+.form__section:first-child { padding-top: 0; border-top: 0; margin-top: 0; }
+.field { display: grid; gap: 6px; min-width: 0; border: 0; margin: 0; padding: 0; }
+.field__label { font-weight: 600; padding: 0; }
+legend.field__label { margin-bottom: 6px; }
+.field__req { font-weight: 400; font-size: 14px; color: var(--ink-muted); }
+.field__hint { margin: 0; font-size: 14px; color: var(--ink-muted); }
+.field__error { margin: 0; font-size: 14px; font-weight: 600; color: var(--error); }
+.form input:not([type="radio"]):not([type="checkbox"]), .form select, .form textarea {
+  box-sizing: border-box; font: inherit; color: var(--ink); background: var(--surface); width: 100%; min-height: 44px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px;
+}
+.form textarea { resize: vertical; }
+.form select:focus-visible, .form textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.form [aria-invalid="true"]:not([type="radio"]):not([type="checkbox"]) { border-color: var(--error); border-width: 2px; }
+.choices { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+.choices--cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+.choice { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.choices--cards .choice { border: 1.5px solid var(--divider); border-radius: var(--radius-md); padding: 12px 14px; }
+.choices--cards .choice:has(input:checked) { border-color: var(--accent-text); }
+.choice input, .check input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: var(--accent-text); }
+.choice__name { display: block; font-weight: 600; }
+.choice__desc { display: block; font-size: 14px; color: var(--ink-muted); }
+.check { display: flex; gap: 10px; align-items: flex-start; }
+.form__hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+button.btn:disabled { cursor: not-allowed; opacity: .7; }
+.form__status, .form__small { margin: 0; font-size: 14px; color: var(--ink-muted); }
+.form__errors { border: 2px solid var(--error); padding: 16px 20px; }
+.form__errors-title { margin: 0 0 8px; font-size: 16px; color: var(--error); }
+.form__errors ul { margin: 0; padding-left: 20px; }
+.form__errors a { color: var(--error); }
+.form__done { border: 2px solid var(--accent-text); padding: 24px; display: grid; gap: 8px; }
+.form__notice, .form__errors, .form__done { border-radius: var(--radius-lg); }
 
 /* ---------- Rounded corners ----------
    One place for all corner rounding: change the three sizes on the :root line.

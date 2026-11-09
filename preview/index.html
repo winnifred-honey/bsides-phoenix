@@ -34,7 +34,7 @@
 <a href="#top" class="skip-link">Skip to main content</a>
 
 <!-- Header -->
-<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/ and events/. Change all of them together. -->
+<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/, events/, sponsor/, volunteer/, sponsors/, partners/, supporters/ and villages/. Change all of them together. -->
 <header class="site-header site-header--nav">
 <div class="site-header__inner">
 <a href="./" class="brand">
@@ -57,11 +57,12 @@
 <li><a href="#agenda" class="nav-link">Agenda</a></li>
 <li><a href="../cfp/" class="nav-link">CFP</a></li>
 <li><a href="../communities/" class="nav-link">Communities</a></li>
-<li><a href="#sponsors" class="nav-link">Sponsor</a></li>
+<li><a href="../sponsor/" class="nav-link">Sponsor</a></li>
 <li><details class="site-nav__dd"><summary class="nav-link">About</summary>
 <ul class="site-nav__menu">
 <li><a href="../about/">About BSides Phoenix</a></li>
 <li><a href="../code-of-conduct/">Code of Conduct</a></li>
+<li><a href="../supporters/">Supporters</a></li>
 </ul></details></li>
 <li><details class="site-nav__dd"><summary class="nav-link">Events</summary>
 <ul class="site-nav__menu">
@@ -126,6 +127,11 @@
 <div class="about__body min-0 stack gap-16">
 <p class="m-0">BSides Phoenix is an inclusive, community-run event that showcases Arizona's cybersecurity talent and the diverse people behind it. Come for the talks, stay for the workshops and villages, and leave knowing more of your neighbors in the field.</p>
 <p class="m-0 muted">Every registration helps grow Arizona's nonprofit cybersecurity community and keeps BSides Phoenix free and welcoming for everyone.</p>
+<div class="stack gap-8" style="padding-top:16px">
+<h3 class="h3">Part of Security BSides</h3>
+<p class="m-0">BSides Phoenix is an official Security BSides event, part of a worldwide network of community-run security conferences that began in Las Vegas in 2009.</p>
+<div class="row gap-16" style="padding-top:8px"><a href="../about/#security-bsides" class="btn btn-outline">More about Security BSides</a></div>
+</div>
 </div>
 </div>
 </section>
@@ -163,7 +169,7 @@
 <span class="badge badge--strong">Opens Saturday, December 12, 2026</span>
 <ul class="ticket__list">
 <li>Limited edition enamel pin, otherwise reserved for staff, volunteers and speakers</li>
-<li>Your name on our <a href="#supporters">supporter page</a> (optional)</li>
+<li>Your name on our <a href="../supporters/">supporter page</a> (optional)</li>
 <li>Helps cover our operating costs</li>
 <li>Optional event T-shirt add-on</li>
 </ul>
@@ -234,6 +240,7 @@
 <span class="dates__what dates__what--event">Conference day</span>
 </li>
 </ol>
+<a href="../assets/bsides-phoenix-2027.ics" class="btn btn-outline self-start" download="bsides-phoenix-2027.ics">Add to calendar</a>
 </div>
 </section>
 
@@ -303,11 +310,70 @@
 <p class="m-0">Every sponsorship is paired with a local nonprofit, and part of it goes to them as a donation, so your support reaches further into Arizona's security community.</p>
 </div>
 <div class="row gap-16">
-<a href="#" class="btn btn-primary">Read the prospectus</a>
+<a href="../sponsor/" class="btn btn-primary">Sponsorship details</a>
 <a href="mailto:sponsorships@bsidesphoenix.org" class="btn btn-outline">Email sponsorships</a>
 </div>
 </div>
-<div class="placeholder">Sponsors and nonprofit partners announced soon.</div>
+<!-- KEEP IN SYNC: this is a shortened version of sponsors/ (Marquee 2, Platinum 1, Gold 1, Silver 2, Bronze 2 here;
+     the full page has every slot). When a sponsor is added, update both. Swap a box's text for an <img> of the logo. -->
+<div class="sponsor-tiers">
+<p class="m-0 muted">Sponsors and nonprofit partners announced soon.</p>
+<div class="sponsor-tier">
+<h3 class="sponsor-tier__name">Marquee</h3>
+<ul class="sponsor-tier__grid sponsor-tier__grid--marquee" role="list">
+<li class="sponsor-slot sponsor-slot--marquee">Your logo here</li>
+<li class="sponsor-slot sponsor-slot--marquee">Your logo here</li>
+</ul>
+</div>
+<div class="sponsor-tier">
+<h3 class="sponsor-tier__name">Platinum</h3>
+<ul class="sponsor-tier__grid sponsor-tier__grid--platinum" role="list">
+<li class="sponsor-slot sponsor-slot--platinum">Your logo here</li>
+</ul>
+</div>
+<div class="sponsor-tier">
+<h3 class="sponsor-tier__name">Gold</h3>
+<ul class="sponsor-tier__grid sponsor-tier__grid--gold" role="list">
+<li class="sponsor-slot sponsor-slot--gold">Your logo here</li>
+</ul>
+</div>
+<div class="sponsor-tier">
+<h3 class="sponsor-tier__name">Silver</h3>
+<ul class="sponsor-tier__grid sponsor-tier__grid--silver" role="list">
+<li class="sponsor-slot sponsor-slot--silver">Your logo here</li>
+<li class="sponsor-slot sponsor-slot--silver">Your logo here</li>
+</ul>
+</div>
+<div class="sponsor-tier">
+<h3 class="sponsor-tier__name">Bronze</h3>
+<ul class="sponsor-tier__grid sponsor-tier__grid--bronze" role="list">
+<li class="sponsor-slot sponsor-slot--bronze">Your logo here</li>
+<li class="sponsor-slot sponsor-slot--bronze">Your logo here</li>
+</ul>
+</div>
+</div>
+<div class="row gap-16"><a href="../sponsors/" class="btn btn-outline">See all sponsors</a></div>
+</div>
+</section>
+
+<!-- KEEP IN SYNC: this is a shortened version of partners/ (6 here, 12 on the full page).
+     When a partner is added, update both. Swap a box's text for an <img> of the logo. -->
+<section id="partners" class="band">
+<div class="wrap stack gap-32">
+<div class="stack gap-12 measure">
+<p class="eyebrow">Community partners</p>
+<h2 class="h2">The nonprofits our sponsors support</h2>
+<p class="m-0">Every sponsorship is paired with a local nonprofit, and part of it goes to them as a donation. Each Platinum, Gold, Silver and Bronze sponsor's partner will appear here.</p>
+</div>
+<ul class="sponsor-tier__grid sponsor-tier__grid--partners" role="list">
+<li class="sponsor-slot sponsor-slot--partner">Partner logo here</li>
+<li class="sponsor-slot sponsor-slot--partner">Partner logo here</li>
+<li class="sponsor-slot sponsor-slot--partner">Partner logo here</li>
+<li class="sponsor-slot sponsor-slot--partner">Partner logo here</li>
+<li class="sponsor-slot sponsor-slot--partner">Partner logo here</li>
+<li class="sponsor-slot sponsor-slot--partner">Partner logo here</li>
+</ul>
+<div class="row gap-16"><a href="../partners/" class="btn btn-outline">See all community partners</a></div>
 </div>
 </section>
 
@@ -319,6 +385,7 @@
 <h2 class="h2">Thank you, Supporters</h2>
 <p class="m-0 muted">Supporter tickets help cover our operating costs and keep BSides Phoenix free for everyone. Supporters who opt in are listed here.</p>
 </div>
+<!-- KEEP IN SYNC: the home page Supporters section (preview/) and supporters/ list the same Supporters. When a Supporter is added, update both. -->
 <!-- Add Supporter names as <li> items inside .supporters__list and delete the .supporters__empty block -->
 <div class="supporters__empty">
 <div class="stack gap-8">
@@ -327,6 +394,7 @@
 </div>
 <a href="https://www.zeffy.com/en-US/ticketing/bsides-phoenix" class="btn btn-primary">Get a Supporter ticket</a>
 </div>
+<div class="row gap-16"><a href="../supporters/" class="btn btn-outline">See all Supporters</a></div>
 </div>
 </section>
 
@@ -345,6 +413,22 @@
 <details class="faq__item">
 <summary class="faq__q">Do I need a ticket if it's free?</summary>
 <p class="faq__a">Yes, everyone needs a ticket. We may not have extra tickets available at the door, so please register ahead of time.</p>
+</details>
+<details class="faq__item">
+<summary class="faq__q">How do free General Admission tickets work?</summary>
+<p class="faq__a">Free tickets are released in batches: the first on Tuesday, July 13, 2027, and the final release on Friday, October 1, 2027. If you miss one, subscribe to our newsletter to hear about the next.</p>
+</details>
+<details class="faq__item">
+<summary class="faq__q">What do Supporter tickets include?</summary>
+<p class="faq__a">The same access as General Admission, plus a limited edition enamel pin, your name on our supporter page if you'd like, and the option to add an event T-shirt. Supporter tickets ($50) open Saturday, December 12, 2026.</p>
+</details>
+<details class="faq__item">
+<summary class="faq__q">How does the hotel block ticket work?</summary>
+<p class="faq__a">Book a room in our hotel block at the Sheraton Mesa Hotel at Wrigleyville West ($169 a night for Friday, October 15 and Saturday, October 16) by Wednesday, September 15, 2027. Email your booking confirmation to cassidy@bsidesphoenix[.]org and we'll send you a code for a guaranteed early Supporter ticket.</p>
+</details>
+<details class="faq__item">
+<summary class="faq__q">Can I volunteer?</summary>
+<p class="faq__a">Yes. Volunteer sign-ups open July 1, 2027. See our <a href="../volunteer/">volunteer page</a>.</p>
 </details>
 <details class="faq__item">
 <summary class="faq__q">Is lunch provided?</summary>
@@ -398,6 +482,11 @@ onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(functi
 </div>
 <nav aria-label="Footer" class="footer-nav">
 <a href="https://www.zeffy.com/en-US/ticketing/bsides-phoenix" class="footer-link">Tickets</a>
+<a href="../cfp/" class="footer-link">CFP</a>
+<a href="../communities/" class="footer-link">Communities</a>
+<a href="../about/" class="footer-link">About</a>
+<a href="../sponsor/" class="footer-link">Sponsor</a>
+<a href="../volunteer/" class="footer-link">Volunteer</a>
 <a href="../code-of-conduct/" class="footer-link">Code of Conduct</a>
 <a href="https://www.linkedin.com/company/bsidesphx" class="footer-link">LinkedIn</a>
 <a href="mailto:sponsorships@bsidesphoenix.org" class="footer-link">Sponsorships</a>
