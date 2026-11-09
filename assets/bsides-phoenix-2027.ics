@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BSides Phoenix//Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:bsides-phoenix-2027@bsidesphoenix.org
+DTSTAMP:20261108T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:BSides Phoenix 2027
+LOCATION:Wrigleyville West Conference Center\, Sheraton Mesa Hotel at Wrigl
+ eyville West\, 860 N Riverview\, Mesa\, AZ 85201
+DESCRIPTION:A free\, community-run security conference. Details: https://wi
+ nnifred-honey.github.io/bsides-phoenix/
+URL:https://winnifred-honey.github.io/bsides-phoenix/
+END:VEVENT
+END:VCALENDAR

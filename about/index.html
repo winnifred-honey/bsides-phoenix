@@ -23,7 +23,7 @@
 <div class="page">
 <a href="#top" class="skip-link">Skip to main content</a>
 
-<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/ and events/. Change all of them together. -->
+<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/, events/, sponsor/, volunteer/, sponsors/, partners/ and supporters/. Change all of them together. -->
 <header class="site-header site-header--nav">
 <div class="site-header__inner">
 <a href="../preview/" class="brand">
@@ -46,11 +46,12 @@
 <li><a href="../preview/#agenda" class="nav-link">Agenda</a></li>
 <li><a href="../cfp/" class="nav-link">CFP</a></li>
 <li><a href="../communities/" class="nav-link">Communities</a></li>
-<li><a href="../preview/#sponsors" class="nav-link">Sponsor</a></li>
+<li><a href="../sponsor/" class="nav-link">Sponsor</a></li>
 <li><details class="site-nav__dd"><summary class="nav-link">About</summary>
 <ul class="site-nav__menu">
 <li><a href="../about/" aria-current="page">About BSides Phoenix</a></li>
 <li><a href="../code-of-conduct/">Code of Conduct</a></li>
+<li><a href="../supporters/">Supporters</a></li>
 </ul></details></li>
 <li><details class="site-nav__dd"><summary class="nav-link">Events</summary>
 <ul class="site-nav__menu">
@@ -98,6 +99,85 @@
 </div>
 </div>
 </section>
+
+<!-- Team: add a lead by replacing a card's "Lead wanted" badge with
+     <p class="team-card__name">Name, Lead</p> and removing team-card--open -->
+<section class="rule-top" aria-labelledby="team">
+<div class="wrap stack gap-32">
+<div class="stack gap-12 measure">
+<p class="eyebrow">Team</p>
+<h2 id="team" class="h2">The team behind BSides Phoenix</h2>
+<p class="m-0">BSides Phoenix is planned by volunteers from Arizona's security community. Each planning area has a lead, and several are still open.</p>
+</div>
+<ul class="team-grid" role="list">
+<li class="team-card">
+<h3 class="team-card__area">Org and admin</h3>
+<p class="team-card__name">Cassidy Trowbridge, Chair</p>
+<p class="team-card__desc">BSides registration, Ginger Hacker Initiative finances, code of conduct</p>
+</li>
+<li class="team-card team-card--open">
+<h3 class="team-card__area">Comms and tickets</h3>
+<p class="badge">Lead wanted</p>
+<p class="team-card__desc">Website, socials, shared inbox, ticket platform, attendee emails</p>
+</li>
+<li class="team-card team-card--open">
+<h3 class="team-card__area">Program</h3>
+<p class="badge">Lead wanted</p>
+<p class="team-card__desc">Call for papers, review committee, schedule, workshops, CTF</p>
+</li>
+<li class="team-card team-card--open">
+<h3 class="team-card__area">Budget and sponsors</h3>
+<p class="badge">Lead wanted</p>
+<p class="team-card__desc">Budget, sponsor tiers and prospectus, outreach, sponsor deliverables</p>
+</li>
+<li class="team-card team-card--open">
+<h3 class="team-card__area">Badges and swag</h3>
+<p class="badge">Lead wanted</p>
+<p class="team-card__desc">Hardware badge, design, manufacturing, shirts and stickers</p>
+</li>
+<li class="team-card team-card--open">
+<h3 class="team-card__area">Villages</h3>
+<p class="badge">Lead wanted</p>
+<p class="team-card__desc">RF Village, Lockpicking Village, Mental Health Hackers and more</p>
+</li>
+<li class="team-card team-card--open">
+<h3 class="team-card__area">Volunteers and day-of</h3>
+<p class="badge">Lead wanted</p>
+<p class="team-card__desc">Recruiting, shifts, registration desk, room monitors, run of show</p>
+</li>
+<li class="team-card team-card--open">
+<h3 class="team-card__area">Venue</h3>
+<p class="badge">Lead wanted</p>
+<p class="team-card__desc">Hotel coordination, room block, catering, AV, Wi-Fi</p>
+</li>
+</ul>
+<div class="note">
+<h3 class="note__title">Want to help plan BSides Phoenix?</h3>
+<p class="note__text">Email cassidy@bsidesphoenix[.]org and tell us which area interests you.</p>
+</div>
+</div>
+</section>
+
+<section class="band" aria-labelledby="security-bsides">
+<div class="wrap stack gap-48">
+<div class="stack gap-16 measure">
+<p class="eyebrow">Security BSides</p>
+<h2 id="security-bsides" class="h2">About Security BSides</h2>
+<p class="m-0">Security BSides is a community-driven framework for building security events for and by the information security community. Each BSides event is run independently by local volunteers, so every one reflects the community that hosts it.</p>
+</div>
+
+<div class="stack gap-16 measure">
+<h3 class="h3">How it started</h3>
+<p class="m-0">BSides began in Las Vegas in 2009, when more strong talks were submitted to a major security conference than its schedule could hold. Community members organized their own event so those talks could still be heard. The name comes from the B-side of a vinyl record: the other side, often where the overlooked gems are.</p>
+</div>
+
+<div class="stack gap-16 measure">
+<h3 class="h3">Around the world</h3>
+<p class="m-0">Since then, BSides events have been held in hundreds of cities around the world. They're community-organized, volunteer-driven and sponsor-funded, which keeps many of them, including BSides Phoenix, free to attend.</p>
+<div class="row gap-16"><a href="https://bsides.org" class="btn btn-outline">Find BSides events worldwide</a></div>
+</div>
+</div>
+</section>
 </main>
 
 <footer class="site-footer on-dark">
@@ -108,6 +188,11 @@
 </div>
 <nav aria-label="Footer" class="footer-nav">
 <a href="https://www.zeffy.com/en-US/ticketing/bsides-phoenix" class="footer-link">Tickets</a>
+<a href="../cfp/" class="footer-link">CFP</a>
+<a href="../communities/" class="footer-link">Communities</a>
+<a href="../about/" class="footer-link">About</a>
+<a href="../sponsor/" class="footer-link">Sponsor</a>
+<a href="../volunteer/" class="footer-link">Volunteer</a>
 <a href="../code-of-conduct/" class="footer-link">Code of Conduct</a>
 <a href="https://www.linkedin.com/company/bsidesphx" class="footer-link">LinkedIn</a>
 <a href="mailto:sponsorships@bsidesphoenix.org" class="footer-link">Sponsorships</a>

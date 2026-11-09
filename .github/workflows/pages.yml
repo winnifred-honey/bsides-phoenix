@@ -32,11 +32,11 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp index.html favicon-32.png apple-touch-icon.png _site/
+          cp index.html 404.html favicon-32.png apple-touch-icon.png _site/
           cp -R assets _site/assets
           cp -R preview _site/preview
           cp -R code-of-conduct _site/code-of-conduct
-          for d in cfp communities about events; do cp -R "$d" "_site/$d"; done
+          for d in cfp communities about events sponsor volunteer sponsors partners supporters; do cp -R "$d" "_site/$d"; done
           rm -rf _site/assets/logo/source
           find _site -type f | sort
       - name: Upload artifact
