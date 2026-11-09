@@ -335,6 +335,16 @@ summary { cursor: pointer; }
   color: var(--ink-muted); font-size: 14px; text-align: center; padding: 24px;
 }
 
+/* ---------- Team (about/) ---------- */
+.team-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.team-card { border: 1.5px solid var(--divider); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.team-card--open { border-style: dashed; border-color: var(--border); }
+.team-card__area { margin: 0; font-family: var(--font-mono); font-size: 18px; font-weight: 500; }
+.team-card__name { margin: 0; font-weight: 700; }
+.team-card__desc { margin: 0; font-size: 14px; color: var(--ink-muted); }
+/* Notes stacked in a column (about/, communities/) keep their natural height */
+.stack > .note { flex: none; }
+
 /* ---------- Supporters ---------- */
 .supporters__empty {
   background: var(--surface); border: 2px dashed var(--accent-text); padding: 32px 24px;
