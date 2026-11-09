@@ -225,6 +225,22 @@ summary { cursor: pointer; }
 .hero__tagline { font-size: 16px; font-weight: 400; white-space: nowrap; }
 @media (max-width: 640px) { .hero__date { font-size: 18px; } .hero__tagline { font-size: 14px; } }
 @media (max-width: 640px) { .hero__title { font-size: 40px; } }
+/* Split hero (full site): headline on the left, event fact card on the right */
+.hero--split .hero__skyline { height: 160px; }
+.hero__inner--split { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 48px; padding-top: 64px; padding-bottom: 200px; }
+.hero__main { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
+.hero__logo--sm { width: 300px; }
+.fact-card {
+  flex: 0 1 380px; min-width: 0; padding: 28px 24px; display: flex; flex-direction: column; gap: 20px;
+  background: var(--phx-white); color: var(--charcoal-900); color-scheme: light; border-radius: var(--radius-lg);
+}
+.fact-card__list { margin: 0; }
+.fact-card__row { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid var(--charcoal-200); }
+.fact-card__row:first-child { padding-top: 0; }
+.fact-card dt { font-family: var(--font-code); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #a65300; }
+.fact-card dd { margin: 0; font-size: 18px; font-weight: 600; }
+.fact-card .btn { text-align: center; }
+@media (max-width: 640px) { .hero__inner--split { padding-top: 40px; padding-bottom: 140px; gap: 32px; } .fact-card { flex-basis: 100%; } }
 
 /* ---------- About ---------- */
 .about__intro { flex: 1 1 360px; }

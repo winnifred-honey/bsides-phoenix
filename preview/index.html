@@ -75,7 +75,7 @@
 <main>
 
 <!-- Hero -->
-<section id="top" class="hero on-photo">
+<section id="top" class="hero hero--split on-photo">
 <svg aria-hidden="true" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMax slice" class="hero__skyline">
 <polygon points="0,240 0,130 150,70 290,120 470,40 650,110 820,55 1000,115 1180,75 1440,130 1440,240" fill="#7f0045" fill-opacity="0.45"></polygon>
 <g fill="#5c0032" fill-opacity="0.75">
@@ -98,21 +98,24 @@
 <rect x="1216" y="148" width="44" height="18"></rect>
 </g>
 </svg>
-<div class="hero__inner">
-<img src="../assets/logo/bsides-phoenix-horizontal-white.svg" alt="BSides Phoenix" width="360" height="125" class="hero__logo">
+<div class="hero__inner hero__inner--split">
+<div class="hero__main">
+<img src="../assets/logo/bsides-phoenix-horizontal-white.svg" alt="BSides Phoenix" width="300" height="104" class="hero__logo hero__logo--sm">
 <div class="hero__text">
 <p class="eyebrow eyebrow--plain">Official Security BSides Chapter Event</p>
 <h1 class="hero__title">Arizona's security community, together for a day.</h1>
-<p class="hero__date date-type">Saturday, October 16, 2027 · Free to attend <span class="hero__tagline">...it's about time!</span></p>
+<p class="hero__date date-type"><span class="hero__tagline">...it's about time!</span></p>
 </div>
-<div class="chips">
-<span class="chip">Wrigleyville West Conference Center</span>
-<span class="chip"><span aria-hidden="true">📍</span>Mesa, Arizona</span>
-</div>
-<div class="row gap-16">
-<a href="#registration" class="btn btn-light btn--wide">See ticket options</a>
 <a href="#newsletter" class="btn btn-outline-light">Subscribe for updates</a>
 </div>
+<aside class="fact-card" aria-label="Event details">
+<dl class="fact-card__list">
+<div class="fact-card__row"><dt>When</dt><dd>Saturday, October 16, 2027</dd></div>
+<div class="fact-card__row"><dt>Where</dt><dd>Wrigleyville West Conference Center, Mesa, Arizona</dd></div>
+<div class="fact-card__row"><dt>Cost</dt><dd>Free · $50 Supporter tickets open December 12, 2026</dd></div>
+</dl>
+<a href="#registration" class="btn btn-primary">See ticket options</a>
+</aside>
 </div>
 </section>
 
