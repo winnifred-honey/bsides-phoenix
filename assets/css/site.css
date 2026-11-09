@@ -475,6 +475,52 @@ summary { cursor: pointer; }
 .coming-soon p { margin: 0; }
 .panel__link, .panel__link:hover { color: var(--magenta-300); }
 
+/* ---------- Forms (cfp/, sponsor/, volunteer/, villages/; see assets/js/forms.js) ---------- */
+:root { --error: #b3261e; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --error: #ff8a80; } }
+:root[data-theme="dark"] { --error: #ff8a80; }
+.form-block { display: grid; gap: 16px; max-width: 760px; min-width: 0; }
+.form-block [hidden] { display: none !important; }
+.form__notice { border: 2px dashed var(--border); padding: 20px 24px; display: grid; gap: 6px; color: var(--ink-muted); }
+.form { display: grid; gap: 16px; min-width: 0; }
+.form__fields { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 24px; }
+.form__fields:disabled { opacity: .75; }
+.form__section { font-family: var(--font-mono); font-weight: 500; font-size: 20px; margin: 8px 0 0; padding-top: 24px; border-top: 1px solid var(--divider); }
+.form__section:first-child { padding-top: 0; border-top: 0; margin-top: 0; }
+.field { display: grid; gap: 6px; min-width: 0; border: 0; margin: 0; padding: 0; }
+.field__label { font-weight: 600; padding: 0; }
+legend.field__label { margin-bottom: 6px; }
+.field__req { font-weight: 400; font-size: 14px; color: var(--ink-muted); }
+.field__hint { margin: 0; font-size: 14px; color: var(--ink-muted); }
+.field__error { margin: 0; font-size: 14px; font-weight: 600; color: var(--error); }
+.form input:not([type="radio"]):not([type="checkbox"]), .form select, .form textarea {
+  box-sizing: border-box; font: inherit; color: var(--ink); background: var(--surface); width: 100%; min-height: 44px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px;
+}
+.form textarea { resize: vertical; }
+.form select:focus-visible, .form textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.form [aria-invalid="true"]:not([type="radio"]):not([type="checkbox"]) { border-color: var(--error); border-width: 2px; }
+.choices { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+.choices--cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+.choice { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.choices--cards .choice { border: 1.5px solid var(--divider); border-radius: var(--radius-md); padding: 12px 14px; }
+.choices--cards .choice:has(input:checked) { border-color: var(--accent-text); }
+.choice input, .check input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: var(--accent-text); }
+.choice__name { display: block; font-weight: 600; }
+.choice__desc { display: block; font-size: 14px; color: var(--ink-muted); }
+.check { display: flex; gap: 10px; align-items: flex-start; }
+.form__hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+button.btn:disabled { cursor: not-allowed; opacity: .7; }
+.form__status, .form__small { margin: 0; font-size: 14px; color: var(--ink-muted); }
+.form__errors { border: 2px solid var(--error); padding: 16px 20px; }
+.form__errors-title { margin: 0 0 8px; font-size: 16px; color: var(--error); }
+.form__errors ul { margin: 0; padding-left: 20px; }
+.form__errors a { color: var(--error); }
+.form__done { border: 2px solid var(--accent-text); padding: 24px; display: grid; gap: 8px; }
+.form__notice, .form__errors, .form__done { border-radius: var(--radius-lg); }
+
 /* ---------- Rounded corners ----------
    One place for all corner rounding: change the three sizes on the :root line.
    Logos are left square: the brand says to place them exactly as supplied. */

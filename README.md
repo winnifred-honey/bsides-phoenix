@@ -9,13 +9,15 @@ Single-page site for BSides Phoenix 2027 (Saturday, October 16, 2027 · Mesa, Ar
 - `code-of-conduct/index.html`: the Code of Conduct (public); every Code of Conduct link on the site points here
 - `cfp/`, `communities/`, `about/`, `events/`, `sponsor/`, `volunteer/`: pages of the full site, marked `noindex` like `preview/`
 - `sponsors/`, `partners/`, `supporters/`: full lists of sponsors, community partners and Supporters (also `noindex`)
+- `villages/`: the "Propose a village" form (also `noindex`)
+- `assets/js/forms.js`, `assets/js/forms-config.js`, `forms/`: the four website forms (sponsor inquiry, call for papers, volunteer application, village proposal), which save to Notion through a Google Apps Script. Setup steps: `forms/README.md`. `forms/` isn't published.
 
 **Keep these in sync:** the home page's Sponsors, Community partners and Supporters sections are shortened versions of `sponsors/`, `partners/` and `supporters/`. When you add a sponsor, partner or Supporter, update the home page section and the full page together (each spot has a KEEP IN SYNC comment).
 - `404.html`: the "page not found" page GitHub Pages shows for any missing address (marked `noindex`)
 - `assets/bsides-phoenix-2027.ics`: the "Add to calendar" file on the preview page's Key dates
 - `assets/js/nav.js`: the phone Menu button and the About / Events dropdowns (the menu still works without it)
 
-The site menu and footer links are copied into `preview/`, `cfp/`, `communities/`, `about/`, `events/`, `sponsor/`, `volunteer/`, `sponsors/`, `partners/` and `supporters/`. When you change them, change them in all ten.
+The site menu and footer links are copied into `preview/`, `cfp/`, `communities/`, `about/`, `events/`, `sponsor/`, `volunteer/`, `sponsors/`, `partners/`, `supporters/` and `villages/`. When you change them, change them in all eleven.
 - `assets/css/site.css`: all page styles (colors, spacing, buttons, sections)
 - `assets/logo/`: logos used on the site; `assets/logo/source/` holds the original exports
 - `assets/og-image.png`: 1200×630 link-preview image for social sites
@@ -25,7 +27,7 @@ The site menu and footer links are copied into `preview/`, `cfp/`, `communities/
 ## Hosting (GitHub Pages)
 
 Every push to `main` runs `.github/workflows/pages.yml`, which copies only the site files
-(`index.html`, `404.html`, `preview/`, `code-of-conduct/`, `cfp/`, `communities/`, `about/`, `events/`, `sponsor/`, `volunteer/`, `sponsors/`, `partners/`, `supporters/`, the two icon PNGs and `assets/`, minus `assets/logo/source/`) and publishes them.
+(`index.html`, `404.html`, `preview/`, `code-of-conduct/`, `cfp/`, `communities/`, `about/`, `events/`, `sponsor/`, `volunteer/`, `sponsors/`, `partners/`, `supporters/`, `villages/`, the two icon PNGs and `assets/`, minus `assets/logo/source/`) and publishes them.
 This README is not published.
 
 Repo **Settings → Pages → Source** must be set to **GitHub Actions**.
@@ -44,7 +46,7 @@ To make the full site the main page:
 1. Replace `index.html` with `preview/index.html`
 2. In it, change the `<title>` from "Full site preview · BSides Phoenix 2027" to the event title, remove the `noindex` meta tag and change every `../` path back to plain paths (`../assets/` → `assets/`, `../favicon-32.png` → `favicon-32.png`, `../apple-touch-icon.png` → `apple-touch-icon.png`)
 3. Delete `preview/` (and its line in the workflow), plus the `.landing` styles at the end of `assets/css/site.css`
-4. In `cfp/`, `communities/`, `about/`, `events/`, `sponsor/`, `volunteer/`, `sponsors/`, `partners/` and `supporters/`: remove the `noindex` meta tag and change `../preview/` to `../` in their links
+4. In `cfp/`, `communities/`, `about/`, `events/`, `sponsor/`, `volunteer/`, `sponsors/`, `partners/`, `supporters/` and `villages/`: remove the `noindex` meta tag and change `../preview/` to `../` in their links
 5. On the new main page, change the menu's `../cfp/`-style links to `cfp/` (they no longer need `../`)
 
 ### Custom domain (bsidesphoenix.org)

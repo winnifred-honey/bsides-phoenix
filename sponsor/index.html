@@ -18,12 +18,14 @@
 <link rel="stylesheet" href="../assets/css/site.css">
 <script src="../assets/js/theme.js" defer></script>
 <script src="../assets/js/nav.js" defer></script>
+<script src="../assets/js/forms-config.js" defer></script>
+<script src="../assets/js/forms.js" defer></script>
 </head>
 <body>
 <div class="page">
 <a href="#top" class="skip-link">Skip to main content</a>
 
-<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/, events/, sponsor/, volunteer/, sponsors/, partners/ and supporters/. Change all of them together. -->
+<!-- Header: the same menu is copied into preview/, cfp/, communities/, about/, events/, sponsor/, volunteer/, sponsors/, partners/, supporters/ and villages/. Change all of them together. -->
 <header class="site-header site-header--nav">
 <div class="site-header__inner">
 <a href="../preview/" class="brand">
@@ -89,10 +91,81 @@
 <div class="coming-soon"><p>Our sponsor prospectus, with tiers and benefits, is planned for January 2027.</p></div>
 </div>
 
-<div class="note">
-<h3 class="note__title">Talk to us about sponsoring</h3>
-<p class="note__text">Email sponsorships@bsidesphoenix.org and we'll send the prospectus as soon as it's ready.</p>
-<p class="note__text" style="margin-top:16px"><a href="mailto:sponsorships@bsidesphoenix.org" class="btn btn-primary">Email sponsorships</a></p>
+<div class="stack gap-24" id="inquiry">
+<div class="stack gap-12 measure">
+<h2 class="h2">Send a sponsorship inquiry</h2>
+<p class="m-0">Tell us about your organization and we'll send the prospectus as soon as it's ready. Prefer email? Write to sponsorships@bsidesphoenix.org.</p>
+</div>
+<!-- Form: saves to Notion through the Apps Script in forms/apps-script/. Switched on in assets/js/forms-config.js -->
+<div class="form-block">
+<div class="form__notice" data-form-notice>
+<p class="m-0" data-notice-text>This form isn't open yet.</p>
+<p class="m-0">In the meantime, email sponsorships@bsidesphoenix.org.</p>
+</div>
+<form class="form" data-form="sponsor" method="post" novalidate aria-label="Sponsorship inquiry">
+<div class="form__errors" tabindex="-1" role="alert" hidden>
+<h3 class="form__errors-title">Please check these answers</h3>
+<ul></ul>
+</div>
+<fieldset class="form__fields" data-form-fields disabled>
+<div class="field">
+<label class="field__label" for="sponsor-organization">Organization name <span class="field__req">(required)</span></label>
+<input type="text" id="sponsor-organization" name="organization" aria-describedby="sponsor-organization-error" required autocomplete="organization" maxlength="200">
+<p class="field__error" id="sponsor-organization-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="sponsor-name">Your name <span class="field__req">(required)</span></label>
+<input type="text" id="sponsor-name" name="name" aria-describedby="sponsor-name-error" required autocomplete="name" maxlength="200">
+<p class="field__error" id="sponsor-name-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="sponsor-email">Email <span class="field__req">(required)</span></label>
+<input type="email" id="sponsor-email" name="email" aria-describedby="sponsor-email-error" required autocomplete="email" maxlength="254">
+<p class="field__error" id="sponsor-email-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="sponsor-phone">Phone</label>
+<input type="tel" id="sponsor-phone" name="phone" aria-describedby="sponsor-phone-error" autocomplete="tel" maxlength="40">
+<p class="field__error" id="sponsor-phone-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="sponsor-website">Organization website</label>
+<p class="field__hint" id="sponsor-website-hint">Starts with https://</p>
+<input type="url" id="sponsor-website" name="website" aria-describedby="sponsor-website-hint sponsor-website-error" autocomplete="url" maxlength="300">
+<p class="field__error" id="sponsor-website-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="sponsor-tier">Which sponsorship level are you interested in? <span class="field__req">(required)</span></label>
+<select id="sponsor-tier" name="tier" aria-describedby="sponsor-tier-error" required data-required="Choose a sponsorship level, or Not sure yet."><option value="">Choose one</option><option>Marquee</option><option>Platinum</option><option>Gold</option><option>Silver</option><option>Bronze</option><option>Not sure yet</option></select>
+<p class="field__error" id="sponsor-tier-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="sponsor-nonprofit">Is there a local nonprofit you&#x27;d like your sponsorship paired with?</label>
+<p class="field__hint" id="sponsor-nonprofit-hint">Optional. We can suggest one if you're not sure.</p>
+<input type="text" id="sponsor-nonprofit" name="nonprofit" aria-describedby="sponsor-nonprofit-hint sponsor-nonprofit-error" maxlength="200">
+<p class="field__error" id="sponsor-nonprofit-error" hidden></p>
+</div>
+<div class="field">
+<label class="field__label" for="sponsor-message">Anything else you&#x27;d like us to know?</label>
+<textarea id="sponsor-message" name="message" aria-describedby="sponsor-message-error" rows="5" maxlength="2000"></textarea>
+<p class="field__error" id="sponsor-message-error" hidden></p>
+</div>
+<div class="form__hp" aria-hidden="true">
+<label for="sponsor-hp">Leave this empty</label>
+<input type="text" id="sponsor-hp" name="company_website" tabindex="-1" autocomplete="off">
+</div>
+<div class="form__actions">
+<button type="submit" class="btn btn-primary">Send inquiry</button>
+<p class="form__status" role="status" aria-live="polite"></p>
+</div>
+<p class="form__small">We'll only use this information to talk with you about sponsoring BSides Phoenix.</p>
+</fieldset>
+</form>
+<div class="form__done" data-form-done tabindex="-1" hidden>
+<h3 class="h3">Thanks! We&#x27;ve received your inquiry.</h3>
+<p class="m-0">We'll be in touch soon. Questions in the meantime? Email sponsorships@bsidesphoenix.org.</p>
+</div>
+</div>
 </div>
 </div>
 </section>
