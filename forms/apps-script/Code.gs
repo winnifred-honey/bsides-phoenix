@@ -76,6 +76,8 @@ const FORMS = {
       { f: 'format', p: 'Format', t: 'select', req: true, allowed: ['Short talk', 'Session', 'Either length', 'Workshop'],
         map: { 'Short talk': 'Short talk · 25 min', 'Session': 'Session · 50 min', 'Either length': 'Either · 25 or 50 min', 'Workshop': 'Workshop · 1 h 50 min' } },
       { f: 'level', p: 'Level', t: 'select', req: true, allowed: ['Beginner', 'Intermediate', 'Advanced'] },
+      { f: 'talk_history', p: 'Talk history', t: 'select', req: true, allowed: ['Original', 'Written for this audience', 'Given before'] },
+      { f: 'given_before_at', p: 'Given before at', t: 'text', max: 300 },
       { f: 'abstract', p: 'Abstract', t: 'text', req: true, max: 1500 },
       { f: 'for_reviewers', p: 'For reviewers', t: 'text', req: true, max: 2000 },
       { f: 'content_warning', p: 'Content warning', t: 'text', max: 300 },

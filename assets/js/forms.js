@@ -179,14 +179,18 @@
         });
     });
 
-    /* Clear a field's error as soon as it's fixed */
-    form.addEventListener("change", function (e) {
+    /* Clear a field's error as soon as it's fixed: while typing for text boxes, so the
+       message is gone before the person clicks elsewhere (clearing it on that click would
+       shift the page under their pointer), and on change for choices and checkboxes. */
+    var recheck = function (e) {
       var wrap = fieldWrap(e.target);
       if (wrap && wrap.querySelector('[aria-invalid="true"]')) {
         var stillBad = validate(form).some(function (p) { return fieldWrap(p.el) === wrap; });
         if (!stillBad) setError(e.target, null);
       }
-    });
+    };
+    form.addEventListener("input", recheck);
+    form.addEventListener("change", recheck);
   }
 
   function start() { document.querySelectorAll("form[data-form]").forEach(init); }

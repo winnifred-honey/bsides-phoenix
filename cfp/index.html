@@ -143,6 +143,23 @@
 </div>
 <p class="field__error" id="cfp-level-error" hidden></p>
 </fieldset>
+<fieldset class="field field--group" data-required="Tell us whether this talk has been given before." aria-describedby="cfp-talk-history-error">
+<legend class="field__label">Has this talk been given before? <span class="field__req">(required)</span></legend>
+<div class="choices choices--cards">
+<label class="choice" for="cfp-talk-history-1"><input type="radio" id="cfp-talk-history-1" name="talk_history" value="Original"><span><span class="choice__name">Original</span><span class="choice__desc">A new talk I haven&#x27;t given before</span></span></label>
+<label class="choice" for="cfp-talk-history-2"><input type="radio" id="cfp-talk-history-2" name="talk_history" value="Written for this audience"><span><span class="choice__name">Written for this audience</span><span class="choice__desc">Original and tailored to Arizona or BSides Phoenix attendees</span></span></label>
+<label class="choice" for="cfp-talk-history-3"><input type="radio" id="cfp-talk-history-3" name="talk_history" value="Given before"><span><span class="choice__name">Given before</span><span class="choice__desc">Updated versions of earlier talks are welcome too</span></span></label>
+</div>
+<p class="field__error" id="cfp-talk-history-error" hidden></p>
+</fieldset>
+<div class="field-reveal" data-show-if="talk_history:Given before">
+<div class="field">
+<label class="field__label" for="cfp-given-before-at">Where and when have you given it?</label>
+<p class="field__hint" id="cfp-given-before-at-hint">For example, the event name and year. Links to recordings or slides can go under Past talks or links.</p>
+<input type="text" id="cfp-given-before-at" name="given_before_at" aria-describedby="cfp-given-before-at-hint cfp-given-before-at-error" maxlength="300">
+<p class="field__error" id="cfp-given-before-at-error" hidden></p>
+</div>
+</div>
 <div class="field">
 <label class="field__label" for="cfp-abstract">Abstract <span class="field__req">(required)</span></label>
 <p class="field__hint" id="cfp-abstract-hint">Shown on the agenda if your talk is accepted.</p>
