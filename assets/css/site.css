@@ -403,6 +403,37 @@ summary { cursor: pointer; }
   .menu-toggle { display: none; }
 }
 
+/* Sticky menu: the header stays at the top while scrolling and gets more compact once the
+   page moves (assets/js/nav.js adds .is-stuck). --header-h keeps in-page links clear of it. */
+html { scroll-padding-top: calc(var(--header-h, 96px) + 16px); }
+.site-header--nav { position: sticky; top: 0; z-index: 50; }
+.site-header--nav.is-stuck { box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12); }
+.site-header--nav.is-stuck .site-header__inner { padding-top: 8px; padding-bottom: 8px; }
+.site-header--nav.is-stuck .brand__logo { height: 36px; }
+.site-header--nav.is-stuck .brand__date { display: none; }
+@media (min-width: 901px) {
+  .site-header--nav.is-stuck .site-nav .nav-link { padding: 8px 0; }
+}
+@media (max-width: 900px) {
+  /* An open phone menu scrolls inside the screen instead of running off the bottom */
+  .site-header--nav.menu-open { max-height: 100vh; max-height: 100dvh; overflow-y: auto; }
+}
+@media (max-width: 480px) {
+  /* Phones: once scrolled, fit the logo and buttons on one line */
+  .site-header--nav.is-stuck:not(.menu-open) .site-header__inner { flex-wrap: nowrap; column-gap: 8px; }
+  .site-header--nav.is-stuck:not(.menu-open) .brand__logo { height: 28px; }
+  .site-header--nav.is-stuck:not(.menu-open) .header-actions { gap: 8px; }
+  .site-header--nav.is-stuck:not(.menu-open) .btn--compact { padding: 10px 14px; white-space: nowrap; }
+  .site-header--nav.is-stuck:not(.menu-open) .menu-toggle { padding: 8px 12px; }
+}
+@media (max-width: 400px) {
+  /* Narrow phones: the light/dark switch waits at the top of the page while scrolled */
+  .site-header--nav.is-stuck:not(.menu-open) .theme-toggle { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .site-header--nav .site-header__inner, .site-header--nav .brand__logo { transition: padding 0.2s, height 0.2s; }
+}
+
 /* ---------- Light / dark switch (assets/js/theme.js) ---------- */
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0;
